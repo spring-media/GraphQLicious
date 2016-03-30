@@ -27,10 +27,10 @@ public enum Field: CustomStringConvertible{
 public struct Request {
   
   public let name: String
-  public let arguments: [String: CustomStringConvertible]
+  public let arguments: [String: AnyObject]
   public let fields: [Field]
   
-  public init(name: String, arguments: [String: CustomStringConvertible], fields: [Field]) {
+  public init(name: String, arguments: [String: AnyObject], fields: [Field]) {
     self.name = name
     self.arguments = arguments
     self.fields = fields

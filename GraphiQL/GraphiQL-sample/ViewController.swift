@@ -21,7 +21,17 @@ class ViewController: UIViewController {
       ],
       fields: [
         .Simple("id"),
-        .Simple("headline")
+        .Simple("headline"),
+        .Complex(Request(
+          name: "image",
+          arguments: [
+            "role": "opener"
+          ],
+          fields: [
+            Field.Simple("id")
+          ]
+          )
+        )
       ])
     
     print(request.createQuery())
