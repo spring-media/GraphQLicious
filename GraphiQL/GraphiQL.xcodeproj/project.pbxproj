@@ -15,6 +15,7 @@
 		D86C606F1CAC20DA002691B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D86C606D1CAC20DA002691B9 /* Main.storyboard */; };
 		D86C60711CAC20DA002691B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86C60701CAC20DA002691B9 /* Assets.xcassets */; };
 		D86C60741CAC20DA002691B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D86C60721CAC20DA002691B9 /* LaunchScreen.storyboard */; };
+		D86C607A1CAC2251002691B9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86C60791CAC2251002691B9 /* Request.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		D86C60701CAC20DA002691B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D86C60731CAC20DA002691B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D86C60751CAC20DA002691B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D86C60791CAC2251002691B9 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			children = (
 				D86C604C1CAC20AE002691B9 /* GraphiQL.h */,
 				D86C604E1CAC20AE002691B9 /* Info.plist */,
+				D86C60791CAC2251002691B9 /* Request.swift */,
 			);
 			path = GraphiQL;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D86C607A1CAC2251002691B9 /* Request.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +406,7 @@
 		D86C605E1CAC20AE002691B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -412,12 +417,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = de.weltN24.GraphiQL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		D86C605F1CAC20AE002691B9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

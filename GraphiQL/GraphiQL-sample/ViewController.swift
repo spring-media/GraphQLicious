@@ -7,12 +7,25 @@
 //
 
 import UIKit
+import GraphiQL
 
 class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    let request: Request = Request(
+      name: "content",
+      arguments: [
+        "ids": 153082687
+      ],
+      fields: [
+        .Simple("id"),
+        .Simple("headline")
+      ])
+    
+    print(request.createQuery())
+
   }
 
   override func didReceiveMemoryWarning() {
