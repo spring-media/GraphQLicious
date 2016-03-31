@@ -19,17 +19,29 @@ public struct Argument {
   }
   
   public init(key: String, values: [ArgumentValue]) {
+    
+    
     self.key = key
     self.values = values
   }
 }
 
 extension Argument: GraphQLStringConvertible {
-  public var stringRepresentation: String {
-    let valuesString = self.values.map { value in
-      value.stringRepresentation
-    }.joinWithSeparator(",")
-    return "\(key): \(valuesString)"
+  public var graphQLString: String {
+    guard key != "" else {
+      return ""
+    }
+    switch values.count {
+    case 0:
+      return ""
+    case 1:
+      return "\(key): \(values[0].graphQLString)"
+    default:
+      let valuesString = self.values.map { value in
+        value.graphQLString
+        }.joinWithSeparator(",")
+      return "\(key): [\(valuesString)]"
+    }
   }
 }
 

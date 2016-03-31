@@ -10,32 +10,32 @@ import Foundation
 
 public protocol GraphQLStringConvertible {
   /// A textual representation of `self`.
-  var stringRepresentation: String { get }
+  var graphQLString: String { get }
 }
 
-// TODO: Check for fix in Xcode 7.3
-extension Array where Element: GraphQLStringConvertible {
-  var stringRepresentation: String {
+
+extension SequenceType where Generator.Element: GraphQLStringConvertible {
+  var graphQLString: String {
     return map { element in
-      element.stringRepresentation
+      element.graphQLString
     }.joinWithSeparator(",")
   }
 }
 
 extension Int: GraphQLStringConvertible {
-  public var stringRepresentation: String {
+  public var graphQLString: String {
     return self.description
   }
 }
 
 extension Float: GraphQLStringConvertible {
-  public var stringRepresentation: String {
+  public var graphQLString: String {
     return self.description
   }
 }
 
 extension String: GraphQLStringConvertible {
-  public var stringRepresentation: String {
+  public var graphQLString: String {
     return self
   }
 }

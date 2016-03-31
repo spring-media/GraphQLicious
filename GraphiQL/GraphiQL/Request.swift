@@ -16,36 +16,36 @@ public struct Request: Field{
   
   public init(name: String, arguments: [Argument], fields: [Field]) {
     self.name = name
-    self.arguments = arguments
+    self.arguments = arguments.flatMap {$0}
     self.fields = fields
   }
   
   public func createQuery() -> String {
-    return "{\(self.stringRepresentation)}"
+    return "{\(self.graphQLString)}"
   }
 }
 
 extension Request: GraphQLStringConvertible {
-  public var stringRepresentation: String {
+  public var graphQLString: String {
     return [
       name,
-      getDescription(forArguments: arguments),
-      getDescription(forFields: fields)
+      getGraphQLString(forArguments: arguments),
+      getGraphQLString(forFields: fields)
     ].joinWithSeparator("")
   }
   
-  private func getDescription(forArguments arguments: [Argument]) -> String {
+  private func getGraphQLString(forArguments arguments: [Argument]) -> String {
     guard arguments.count > 0 else {
       return ""
     }
-    return "(\(arguments.stringRepresentation))"
+    return "(\(arguments.graphQLString))"
   }
   
-  private func getDescription(forFields fields: [Field]) -> String {
+  private func getGraphQLString(forFields fields: [Field]) -> String {
     guard fields.count > 0 else {
       return ""
     }
-    
-    return "{\(self.fields.map{$0.stringRepresentation}.joinWithSeparator(","))}"
+    // TODO: Check for fix in Xcode 7.3
+    return "{\(self.fields.map{$0.graphQLString}.joinWithSeparator(","))}"
   }
 }
