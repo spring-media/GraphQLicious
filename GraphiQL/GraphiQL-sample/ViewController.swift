@@ -10,14 +10,14 @@ import UIKit
 import GraphiQL
 
 class ViewController: UIViewController {
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     let request: Request = Request(
       name: "content",
       arguments: [
-        "ids": 153082687
+        Argument(key: "ids", value: 153082687)
       ],
       fields: [
         .Simple("id"),
@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         .Complex(Request(
           name: "image",
           arguments: [
-            "role": "opener"
+            Argument(key: "role", value: "opener")
           ],
           fields: [
             Field.Simple("id")
@@ -35,14 +35,10 @@ class ViewController: UIViewController {
       ])
     
     print(request.createQuery())
-
+    
   }
-
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
-
-
 }
-

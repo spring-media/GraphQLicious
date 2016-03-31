@@ -8,65 +8,43 @@
 
 import Foundation
 
-public enum Field: CustomStringConvertible{
-  case Simple(String)
-  case Complex(Request)
-  
-  public var description: String {
-    get {
-      switch self{
-      case .Simple(let string):
-        return string
-      case .Complex(let request):
-        return request.description
-      }
-    }
-  }
-}
-
 public struct Request {
   
   public let name: String
-  public let arguments: [String: AnyObject]
+  public let arguments: [Argument]
   public let fields: [Field]
   
-  public init(name: String, arguments: [String: AnyObject], fields: [Field]) {
+  public init(name: String, arguments: [Argument], fields: [Field]) {
     self.name = name
     self.arguments = arguments
     self.fields = fields
   }
   
   public func createQuery() -> String {
-    
-    var stringToReturn = "{"
-    stringToReturn += self.description
-    stringToReturn += "}"
-    return stringToReturn
+    return "{\(self.stringRepresentation)}"
   }
 }
 
-extension Request: CustomStringConvertible {
-  public var description: String {
-    get {
-      var stringToReturn = name
-      stringToReturn += "("
-      
-      for (key, value) in arguments {
-        stringToReturn += "\(key): \(value)"
-        stringToReturn += ","
-      }
-      
-      stringToReturn = stringToReturn.substringToIndex(stringToReturn.endIndex.predecessor())
-      stringToReturn += "){"
-      
-      for field in fields{
-        stringToReturn += field.description
-        stringToReturn += ","
-      }
-      
-      stringToReturn = stringToReturn.substringToIndex(stringToReturn.endIndex.predecessor())
-      stringToReturn += "}"
-      return stringToReturn
+extension Request: GraphQLStringConvertible {
+  public var stringRepresentation: String {
+    return [
+      name,
+      getDescription(forArguments: arguments),
+      getDescription(forFields: fields)
+    ].joinWithSeparator("")
+  }
+  
+  private func getDescription(forArguments arguments: [Argument]) -> String {
+    guard arguments.count > 0 else {
+      return ""
     }
+    return "(\(arguments.stringRepresentation))"
+  }
+  
+  private func getDescription(forFields fields: [Field]) -> String {
+    guard fields.count > 0 else {
+      return ""
+    }
+    return "{\(fields.stringRepresentation)}"
   }
 }

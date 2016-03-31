@@ -16,6 +16,9 @@
 		D86C60711CAC20DA002691B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86C60701CAC20DA002691B9 /* Assets.xcassets */; };
 		D86C60741CAC20DA002691B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D86C60721CAC20DA002691B9 /* LaunchScreen.storyboard */; };
 		D86C607A1CAC2251002691B9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86C60791CAC2251002691B9 /* Request.swift */; };
+		D8713B441CAD4367000AD793 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8713B431CAD4367000AD793 /* Argument.swift */; };
+		D8E6F92D1CAD27C000FF7966 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6F92C1CAD27C000FF7966 /* Field.swift */; };
+		D8E6F92F1CAD27F300FF7966 /* GraphQLStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6F92E1CAD27F300FF7966 /* GraphQLStringConvertible.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,9 @@
 		D86C60731CAC20DA002691B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D86C60751CAC20DA002691B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D86C60791CAC2251002691B9 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		D8713B431CAD4367000AD793 /* Argument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Argument.swift; sourceTree = "<group>"; };
+		D8E6F92C1CAD27C000FF7966 /* Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
+		D8E6F92E1CAD27F300FF7966 /* GraphQLStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLStringConvertible.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,9 @@
 				D86C604C1CAC20AE002691B9 /* GraphiQL.h */,
 				D86C604E1CAC20AE002691B9 /* Info.plist */,
 				D86C60791CAC2251002691B9 /* Request.swift */,
+				D8E6F92C1CAD27C000FF7966 /* Field.swift */,
+				D8713B431CAD4367000AD793 /* Argument.swift */,
+				D8E6F92E1CAD27F300FF7966 /* GraphQLStringConvertible.swift */,
 			);
 			path = GraphiQL;
 			sourceTree = "<group>";
@@ -263,6 +272,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8713B441CAD4367000AD793 /* Argument.swift in Sources */,
+				D8E6F92F1CAD27F300FF7966 /* GraphQLStringConvertible.swift in Sources */,
+				D8E6F92D1CAD27C000FF7966 /* Field.swift in Sources */,
 				D86C607A1CAC2251002691B9 /* Request.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,6 +511,7 @@
 				D86C605F1CAC20AE002691B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D86C60601CAC20AE002691B9 /* Build configuration list for PBXNativeTarget "GraphiQLTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +520,7 @@
 				D86C60621CAC20AE002691B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D86C60761CAC20DA002691B9 /* Build configuration list for PBXNativeTarget "GraphiQL-sample" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +529,7 @@
 				D86C60781CAC20DA002691B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
