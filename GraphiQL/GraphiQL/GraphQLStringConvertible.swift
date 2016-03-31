@@ -13,8 +13,9 @@ public protocol GraphQLStringConvertible {
   var stringRepresentation: String { get }
 }
 
-extension SequenceType where Generator.Element: GraphQLStringConvertible {
-  public var stringRepresentation: String {
+// TODO: Check for fix in Xcode 7.3
+extension Array where Element: GraphQLStringConvertible {
+  var stringRepresentation: String {
     return map { element in
       element.stringRepresentation
     }.joinWithSeparator(",")

@@ -8,15 +8,17 @@
 
 import Foundation
 
+public protocol ArgumentValue: GraphQLStringConvertible {}
+
 public struct Argument {
   public let key: String
-  private let values: [GraphQLStringConvertible]
+  private let values: [ArgumentValue]
   
-  public init(key: String, value: GraphQLStringConvertible) {
+  public init(key: String, value: ArgumentValue) {
     self.init(key: key, values: [value])
   }
   
-  public init(key: String, values: [GraphQLStringConvertible]) {
+  public init(key: String, values: [ArgumentValue]) {
     self.key = key
     self.values = values
   }
@@ -30,3 +32,9 @@ extension Argument: GraphQLStringConvertible {
     return "\(key): \(valuesString)"
   }
 }
+
+extension Int: ArgumentValue {}
+
+extension Float: ArgumentValue {}
+
+extension String: ArgumentValue {}

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Request {
+public struct Request: Field{
   
   public let name: String
   public let arguments: [Argument]
@@ -45,6 +45,7 @@ extension Request: GraphQLStringConvertible {
     guard fields.count > 0 else {
       return ""
     }
-    return "{\(fields.stringRepresentation)}"
+    
+    return "{\(self.fields.map{$0.stringRepresentation}.joinWithSeparator(","))}"
   }
 }

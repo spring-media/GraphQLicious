@@ -8,16 +8,6 @@
 
 import Foundation
 
-public enum Field: GraphQLStringConvertible {
-  case Simple(String)
-  case Complex(Request)
-  
-  public var stringRepresentation: String {
-    switch self{
-    case .Simple(let string):
-      return string
-    case .Complex(let request):
-      return request.stringRepresentation
-    }
-  }
-}
+public protocol Field: GraphQLStringConvertible {}
+
+extension String: Field {}

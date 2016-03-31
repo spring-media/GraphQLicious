@@ -14,23 +14,22 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let request: Request = Request(
+    let request = Request(
       name: "content",
       arguments: [
         Argument(key: "ids", value: 153082687)
       ],
       fields: [
-        .Simple("id"),
-        .Simple("headline"),
-        .Complex(Request(
+        "id",
+        "headline",
+        Request(
           name: "image",
           arguments: [
             Argument(key: "role", value: "opener")
           ],
           fields: [
-            Field.Simple("id")
+            "id"
           ]
-          )
         )
       ])
     
