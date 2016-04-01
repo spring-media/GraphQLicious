@@ -13,14 +13,12 @@ public protocol ArgumentValue: GraphQLStringConvertible {}
 public struct Argument {
   public let key: String
   private let values: [ArgumentValue]
-  
+ 
   public init(key: String, value: ArgumentValue) {
     self.init(key: key, values: [value])
   }
   
   public init(key: String, values: [ArgumentValue]) {
-    
-    
     self.key = key
     self.values = values
   }
