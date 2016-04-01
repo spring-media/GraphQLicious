@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     let request = Request(
       name: "content",
       arguments: [
-        Argument(key: "ids", value: [153082687])
+        Argument(key: "ids", values: [153082687])
       ],
       fields: [
         "id",
