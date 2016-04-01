@@ -18,7 +18,7 @@ extension SequenceType where Generator.Element: GraphQLStringConvertible {
   public var graphQLString: String {
     return map { element in
       element.graphQLString
-    }.joinWithSeparator(",")
+      }.joinWithSeparator(",")
   }
 }
 
@@ -43,5 +43,11 @@ extension Double: GraphQLStringConvertible {
 extension String: GraphQLStringConvertible {
   public var graphQLString: String {
     return self
+  }
+}
+
+extension String {
+  public var withQuotes: String {
+    return "\"\(self)\""
   }
 }
