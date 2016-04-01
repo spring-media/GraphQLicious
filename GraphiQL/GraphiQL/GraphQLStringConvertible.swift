@@ -15,7 +15,7 @@ public protocol GraphQLStringConvertible {
 
 
 extension SequenceType where Generator.Element: GraphQLStringConvertible {
-  var graphQLString: String {
+  public var graphQLString: String {
     return map { element in
       element.graphQLString
     }.joinWithSeparator(",")
@@ -29,6 +29,12 @@ extension Int: GraphQLStringConvertible {
 }
 
 extension Float: GraphQLStringConvertible {
+  public var graphQLString: String {
+    return self.description
+  }
+}
+
+extension Double: GraphQLStringConvertible {
   public var graphQLString: String {
     return self.description
   }

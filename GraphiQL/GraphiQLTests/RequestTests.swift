@@ -74,7 +74,7 @@ class RequestTests: XCTestCase {
   }
   
   func testComplexRequest() {
-    let output = "{content(ids: 153082687){id,headline,image(role: opener){id}}}"
+    let output = "{content(ids: 153082687){id,headline,image(role: opener){id,url(ratio: 1.777,size: 200)}}}"
     let request = Request(
       name: "content",
       arguments: [
@@ -89,7 +89,14 @@ class RequestTests: XCTestCase {
             Argument(key: "role", value: "opener")
           ],
           fields: [
-            "id"
+            "id",
+            ExtendedField(
+              name: "url",
+              arguments: [
+                Argument(key: "ratio", value: 1.777),
+                Argument(key: "size", value: 200)
+              ]
+            ),
           ]
         )
       ])

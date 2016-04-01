@@ -17,7 +17,7 @@ public struct Request: Field{
   public init(name: String, arguments: [Argument], fields: [Field]) {
     self.name = name
     self.arguments = arguments.flatMap {$0}
-    self.fields = fields
+    self.fields = fields.flatMap {$0}
   }
   
   public func createQuery() -> String {

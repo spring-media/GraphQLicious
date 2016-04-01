@@ -43,8 +43,12 @@ extension Argument: GraphQLStringConvertible {
   }
 }
 
+
+
 extension Int: ArgumentValue {}
 
 extension Float: ArgumentValue {}
+
+extension Double: ArgumentValue {}
 
 extension String: ArgumentValue {}
