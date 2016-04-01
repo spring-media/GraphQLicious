@@ -13,7 +13,6 @@ public protocol GraphQLStringConvertible {
   var graphQLString: String { get }
 }
 
-
 extension SequenceType where Generator.Element: GraphQLStringConvertible {
   public var graphQLString: String {
     return map { element in

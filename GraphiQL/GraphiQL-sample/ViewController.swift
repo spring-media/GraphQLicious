@@ -14,7 +14,7 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let request = Request(
+    let request = RequestObject(withRequest: Request(
       name: "content",
       arguments: [
         Argument(key: "ids", values: [153082687])
@@ -31,10 +31,10 @@ class ViewController: UIViewController {
             "id"
           ]
         )
-      ])
-    
+      ]
+      )
+    )
     print(request.createQuery())
-    
   }
   
   override func didReceiveMemoryWarning() {

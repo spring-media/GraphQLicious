@@ -8,20 +8,15 @@
 
 import Foundation
 
-public struct Request: Field{
-  
+public struct Request: Field {
   public let name: String
   public let arguments: [Argument]
   public let fields: [Field]
   
-  public init(name: String, arguments: [Argument], fields: [Field]) {
+  public init(name: String, arguments: [Argument] = [], fields: [Field] = []) {
     self.name = name
     self.arguments = arguments.flatMap {$0}
     self.fields = fields.flatMap {$0}
-  }
-  
-  public func createQuery() -> String {
-    return "{\(self.graphQLString)}"
   }
 }
 
@@ -29,23 +24,23 @@ extension Request: GraphQLStringConvertible {
   public var graphQLString: String {
     return [
       name,
-      getGraphQLString(forArguments: arguments),
-      getGraphQLString(forFields: fields)
+      getArgumentsString(),
+      getFieldsString()
     ].joinWithSeparator("")
   }
   
-  private func getGraphQLString(forArguments arguments: [Argument]) -> String {
+  private func getArgumentsString() -> String {
     guard arguments.count > 0 else {
       return ""
     }
     return "(\(arguments.graphQLString))"
   }
   
-  private func getGraphQLString(forFields fields: [Field]) -> String {
+  private func getFieldsString() -> String {
     guard fields.count > 0 else {
       return ""
     }
     // TODO: Check for fix in Xcode 7.3
-    return "{\(self.fields.map{$0.graphQLString}.joinWithSeparator(","))}"
+    return "{\(fields.map{$0.graphQLString}.joinWithSeparator(","))}"
   }
 }

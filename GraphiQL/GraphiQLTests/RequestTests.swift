@@ -21,19 +21,20 @@ class RequestTests: XCTestCase {
     
   func testEmptyRequest() {
     let output = "{}"
-    let request = Request(
+    let request = RequestObject(withRequest: Request(
       name: "",
       arguments: [
       ],
       fields: [
-      ])
-    
+      ]
+      )
+    )
     XCTAssertEqual(request.createQuery(), output, "Output doesn't match request")
   }
   
   func testRequestWithEmptyName() {
     let output = "{(ids: 153082687){id,headline}}"
-    let request = Request(
+    let request = RequestObject(withRequest: Request(
       name: "",
       arguments: [
         Argument(key: "ids", value: 153082687)
@@ -41,41 +42,44 @@ class RequestTests: XCTestCase {
       fields: [
         "id",
         "headline",
-      ])
-    
+      ]
+      )
+    )
     XCTAssertEqual(request.createQuery(), output, "Output doesn't match request")
   }
   
   func testRequestWithEmptyArguments() {
     let output = "{content{id,headline}}"
-    let request = Request(
+    let request = RequestObject(withRequest: Request(
       name: "content",
       arguments: [
       ],
       fields: [
         "id",
         "headline",
-      ])
-    
+      ]
+      )
+    )
     XCTAssertEqual(request.createQuery(), output, "Output doesn't match request")
   }
   
   func testRequestWithEmptyFields() {
     let output = "{content(ids: 153082687)}"
-    let request = Request(
+    let request = RequestObject(withRequest: Request(
       name: "content",
       arguments: [
         Argument(key: "ids", value: 153082687)
       ],
       fields: [
-      ])
-    
+      ]
+      )
+    )
     XCTAssertEqual(request.createQuery(), output, "Output doesn't match request")
   }
   
   func testComplexRequest() {
-    let output = "{content(ids: 153082687){id,headline,image(role: opener){id,url(ratio: 1.777,size: 200)}}}"
-    let request = Request(
+    let output = "{content(ids: 153082687){id,headline,image(role: opener){id,homeSection{displayName},url(ratio: 1.777,size: 200)}}}"
+    let request = RequestObject(withRequest: Request(
       name: "content",
       arguments: [
         Argument(key: "ids", value: 153082687)
@@ -90,7 +94,14 @@ class RequestTests: XCTestCase {
           ],
           fields: [
             "id",
-            ExtendedField(
+            Request(
+              name: "homeSection",
+              arguments: [],
+              fields: [
+                "displayName"
+              ]
+            ),
+            Request(
               name: "url",
               arguments: [
                 Argument(key: "ratio", value: 1.777),
@@ -99,8 +110,9 @@ class RequestTests: XCTestCase {
             ),
           ]
         )
-      ])
-    
+      ]
+      )
+    )
     XCTAssertEqual(request.createQuery(), output, "Output doesn't match request")
   }
 }
