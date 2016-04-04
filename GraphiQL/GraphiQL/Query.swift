@@ -31,6 +31,7 @@ import Foundation
         )
       ]
     ))
+ ```
 */
 public struct Query {
   public let request: Request
