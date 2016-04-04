@@ -8,8 +8,11 @@
 
 import Foundation
 
+/**
+ Provides a String representation that can be interpreted by GraphQL
+*/
 public protocol GraphQLStringConvertible {
-  /// A textual representation of `self`.
+  /// A String representation of `self` that can be interpreted by GraphQL
   var graphQLString: String { get }
 }
 

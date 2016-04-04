@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Field that can be read by GraphQL
+ */
 public protocol Field: GraphQLStringConvertible {}
 
 extension String: Field {}

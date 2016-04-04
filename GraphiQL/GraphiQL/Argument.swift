@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Argument value that can be read by GraphQL
+*/
 public protocol ArgumentValue: GraphQLStringConvertible {}
 
 public struct Argument {

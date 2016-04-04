@@ -18,7 +18,7 @@
 		D86C607A1CAC2251002691B9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86C60791CAC2251002691B9 /* Request.swift */; };
 		D8713B441CAD4367000AD793 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8713B431CAD4367000AD793 /* Argument.swift */; };
 		D8713B461CAE67C3000AD793 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8713B451CAE67C3000AD793 /* RequestTests.swift */; };
-		D8B36A3C1CAEA0CF00D4A18B /* RequestObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B36A3B1CAEA0CF00D4A18B /* RequestObject.swift */; };
+		D8B36A3C1CAEA0CF00D4A18B /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B36A3B1CAEA0CF00D4A18B /* Query.swift */; };
 		D8E6F92D1CAD27C000FF7966 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6F92C1CAD27C000FF7966 /* Field.swift */; };
 		D8E6F92F1CAD27F300FF7966 /* GraphQLStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6F92E1CAD27F300FF7966 /* GraphQLStringConvertible.swift */; };
 /* End PBXBuildFile section */
@@ -50,7 +50,7 @@
 		D86C60791CAC2251002691B9 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		D8713B431CAD4367000AD793 /* Argument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Argument.swift; sourceTree = "<group>"; };
 		D8713B451CAE67C3000AD793 /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
-		D8B36A3B1CAEA0CF00D4A18B /* RequestObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestObject.swift; sourceTree = "<group>"; };
+		D8B36A3B1CAEA0CF00D4A18B /* Query.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
 		D8E6F92C1CAD27C000FF7966 /* Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		D8E6F92E1CAD27F300FF7966 /* GraphQLStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLStringConvertible.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,7 +107,7 @@
 				D86C604C1CAC20AE002691B9 /* GraphiQL.h */,
 				D86C604E1CAC20AE002691B9 /* Info.plist */,
 				D86C60791CAC2251002691B9 /* Request.swift */,
-				D8B36A3B1CAEA0CF00D4A18B /* RequestObject.swift */,
+				D8B36A3B1CAEA0CF00D4A18B /* Query.swift */,
 				D8E6F92C1CAD27C000FF7966 /* Field.swift */,
 				D8713B431CAD4367000AD793 /* Argument.swift */,
 				D8E6F92E1CAD27F300FF7966 /* GraphQLStringConvertible.swift */,
@@ -282,7 +282,7 @@
 				D8E6F92F1CAD27F300FF7966 /* GraphQLStringConvertible.swift in Sources */,
 				D8E6F92D1CAD27C000FF7966 /* Field.swift in Sources */,
 				D86C607A1CAC2251002691B9 /* Request.swift in Sources */,
-				D8B36A3C1CAEA0CF00D4A18B /* RequestObject.swift in Sources */,
+				D8B36A3C1CAEA0CF00D4A18B /* Query.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
