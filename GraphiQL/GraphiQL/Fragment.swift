@@ -16,16 +16,16 @@ public struct Fragment {
   public init(withAlias alias: String, name: String, fields: [Field]) {
     self.alias = alias.withoutWhiteSpaces
     self.name = name.withoutWhiteSpaces
-    self.fields = fields.flatMap {$0}
+    self.fields = fields
   }
 }
 
 extension Fragment: Field {
-  public var asGraphQLString: String {
+  public var asGraphQLField: String {
     return "...\(alias)"
   }
   
-  public var asDeclarationString: String {
+  public var asGraphQLString: String {
     return [
       "fragment",
       alias,

@@ -32,12 +32,12 @@
  ```
 */
 public struct Query {
-  public let node: Request
+  public let request: Request
   public let fragments: [Fragment]
   
-  public init(withNode node: Request, fragments: [Fragment] = []) {
-    self.node = node
-    self.fragments = fragments.flatMap { $0 }
+  public init(withRequest request: Request, fragments: [Fragment] = []) {
+    self.request = request
+    self.fragments = fragments
   }
   
   /**
@@ -46,6 +46,6 @@ public struct Query {
    - returns: A GraphQL readable query String
   */
   public func create() -> String {
-    return "{\(node.asGraphQLString)}\(fragments.map {$0.asDeclarationString}.joinWithSeparator(""))"
+    return "{\(request.asGraphQLString)}\(fragments.map {$0.asGraphQLString}.joinWithSeparator(""))"
   }
 }

@@ -11,4 +11,12 @@ import Foundation
 /**
  Field that can be read by GraphQL
  */
-public protocol Field: GraphQLConvertible {}
+public protocol Field: GraphQLConvertible {
+  var asGraphQLField: String { get }
+}
+
+extension Field {
+  public var asGraphQLField: String {
+    return asGraphQLString
+  }
+}

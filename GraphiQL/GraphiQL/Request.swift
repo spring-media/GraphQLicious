@@ -15,8 +15,8 @@ public struct Request {
   public init(withAlias alias: String = "", name: String, arguments: [Argument] = [], fields: [Field] = []) {
     self.alias = alias.withoutWhiteSpaces
     self.name = name.withoutWhiteSpaces
-    self.arguments = arguments.flatMap {$0}
-    self.fields = fields.flatMap {$0}
+    self.arguments = arguments
+    self.fields = fields
   }
 }
 
@@ -46,6 +46,6 @@ extension Request: Field {
       return ""
     }
     // TODO: Check for fix in Xcode 7.3
-    return "{\(fields.map{$0.asGraphQLString}.joinWithSeparator(","))}"
+    return "{\(fields.map{$0.asGraphQLField}.joinWithSeparator(","))}"
   }
 }
