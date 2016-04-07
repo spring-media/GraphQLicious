@@ -9,12 +9,14 @@
 import Foundation
 
 public struct Request: Field {
+  public let alias: String
   public let name: String
   public let arguments: [Argument]
   public let fields: [Field]
   
-  public init(name: String, arguments: [Argument] = [], fields: [Field] = []) {
-    self.name = name
+  public init(withAlias alias: String = "", name: String, arguments: [Argument] = [], fields: [Field] = []) {
+    self.alias = alias.withoutWhiteSpaces
+    self.name = name.withoutWhiteSpaces
     self.arguments = arguments.flatMap {$0}
     self.fields = fields.flatMap {$0}
   }
@@ -23,10 +25,15 @@ public struct Request: Field {
 extension Request: GraphQLStringConvertible {
   public var graphQLString: String {
     return [
+      getAliasString(),
       name,
       getArgumentsString(),
       getFieldsString()
     ].joinWithSeparator("")
+  }
+  
+  private func getAliasString() -> String {
+    return alias == "" ? "" : "\(alias):"
   }
   
   private func getArgumentsString() -> String {

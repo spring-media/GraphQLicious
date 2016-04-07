@@ -41,15 +41,3 @@ extension Double: GraphQLStringConvertible {
     return self.description
   }
 }
-
-extension String: GraphQLStringConvertible {
-  public var graphQLString: String {
-    return self
-  }
-}
-
-extension String {
-  public var withQuotes: String {
-    return "\"\(self)\""
-  }
-}

@@ -77,6 +77,22 @@ class RequestTests: XCTestCase {
     XCTAssertEqual(query.create(), output, "Output doesn't match request")
   }
   
+  func testRequestWithAlias() {
+    let output = "{test:content(ids: 153082687){id,headline}}"
+    let query = Query(withRequest: Request(
+      withAlias: "test",
+      name: "content",
+      arguments: [
+        Argument(key: "ids", value: 153082687)
+      ],
+      fields: [
+        "id",
+        "headline",
+      ]
+    ))
+    XCTAssertEqual(query.create(), output, "Output doesn't match request")
+  }
+  
   func testComplexRequest() {
     let output = "{content(ids: 153082687){id,headline,image(role: opener){id,homeSection{displayName},url(ratio: 1.777,size: 200)}}}"
     let query = Query(withRequest: Request(
