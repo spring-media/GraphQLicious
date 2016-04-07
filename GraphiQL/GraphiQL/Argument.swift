@@ -8,11 +8,6 @@
 
 import Foundation
 
-/**
- Argument value that can be read by GraphQL
-*/
-public protocol ArgumentValue: GraphQLStringConvertible {}
-
 public struct Argument {
   public let key: String
   private let values: [ArgumentValue]
@@ -27,8 +22,8 @@ public struct Argument {
   }
 }
 
-extension Argument: GraphQLStringConvertible {
-  public var graphQLString: String {
+extension Argument: GraphQLConvertible {
+  public var asGraphQLString: String {
     guard key != "" else {
       return ""
     }
@@ -36,20 +31,12 @@ extension Argument: GraphQLStringConvertible {
     case 0:
       return ""
     case 1:
-      return "\(key): \(values[0].graphQLString)"
+      return "\(key): \(values[0].asGraphQLString)"
     default:
       let valuesString = self.values.map { value in
-        value.graphQLString
+        value.asGraphQLString
         }.joinWithSeparator(",")
       return "\(key): [\(valuesString)]"
     }
   }
 }
-
-extension Int: ArgumentValue {}
-
-extension Float: ArgumentValue {}
-
-extension Double: ArgumentValue {}
-
-extension String: ArgumentValue {}

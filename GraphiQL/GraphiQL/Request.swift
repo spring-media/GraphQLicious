@@ -6,9 +6,7 @@
 //  Copyright © 2016 WeltN24. All rights reserved.
 //
 
-import Foundation
-
-public struct Request: Field {
+public struct Request {
   public let alias: String
   public let name: String
   public let arguments: [Argument]
@@ -22,13 +20,13 @@ public struct Request: Field {
   }
 }
 
-extension Request: GraphQLStringConvertible {
-  public var graphQLString: String {
+extension Request: Field {
+  public var asGraphQLString: String {
     return [
-      getAliasString(),
-      name,
-      getArgumentsString(),
-      getFieldsString()
+    getAliasString(),
+    name,
+    getArgumentsString(),
+    getFieldsString()
     ].joinWithSeparator("")
   }
   
@@ -40,7 +38,7 @@ extension Request: GraphQLStringConvertible {
     guard arguments.count > 0 else {
       return ""
     }
-    return "(\(arguments.graphQLString))"
+    return "(\(arguments.asGraphQLString))"
   }
   
   private func getFieldsString() -> String {
@@ -48,6 +46,6 @@ extension Request: GraphQLStringConvertible {
       return ""
     }
     // TODO: Check for fix in Xcode 7.3
-    return "{\(fields.map{$0.graphQLString}.joinWithSeparator(","))}"
+    return "{\(fields.map{$0.asGraphQLString}.joinWithSeparator(","))}"
   }
 }

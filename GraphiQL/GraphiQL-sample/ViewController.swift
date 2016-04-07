@@ -14,7 +14,56 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let query = Query(withRequest: Request(
+    let image = Fragment(
+      withAlias: "imageFields",
+      name: "Image",
+      fields: [
+        "id",
+        Request(
+          name: "url",
+          arguments: [
+            Argument(key: "size", value: 200),
+            Argument(key: "ratio", value: 1)
+          ]
+        )
+      ]
+    )
+    
+    let content = Fragment(
+      withAlias: "contentFields",
+      name: "Content",
+      fields: [
+        "id",
+        "headline",
+        Request(
+          name: "images",
+          arguments: [
+            Argument(key: "role", value: "opener")
+          ],
+          fields: [
+            image
+          ]
+        )
+      ]
+    )
+    
+    
+    
+    let q1 = Query(withNode: Request(
+      withAlias: "test",
+      name: "content",
+      arguments: [
+        Argument(key: "ids", values: [153082687])
+      ],
+      fields: [
+        content
+      ]),
+                   fragments: [content, image]
+    )
+    
+    print(q1.create())
+    
+    let query = Query(withNode: Request(
       name: "content",
       arguments: [
         Argument(key: "ids", values: [153082687])
@@ -23,7 +72,7 @@ class ViewController: UIViewController {
         "id",
         "headline",
         Request(
-          name: "image",
+          name: "images",
           arguments: [
             Argument(key: "role", value: "opener")
           ],

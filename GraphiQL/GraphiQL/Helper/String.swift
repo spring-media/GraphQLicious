@@ -8,11 +8,13 @@
 
 import Foundation
 
-extension String: GraphQLStringConvertible {
-  public var graphQLString: String {
+extension String: Field {
+  public var asGraphQLString: String {
     return self
   }
 }
+
+extension String: ArgumentValue {}
 
 extension String {
   var withQuotes: String {

@@ -25,40 +25,40 @@ class ArgumentTests: XCTestCase {
     let output = "ids: 153082687"
     let argument = Argument(key: "ids", value: 153082687)
     
-    XCTAssertEqual(argument.graphQLString, output, "Output doesn't match argument")
+    XCTAssertEqual(argument.asGraphQLString, output, "Output doesn't match argument")
   }
   
   func testArgumentWithMultipleValues() {
     let output = "ids: [153082687,153082688]"
     let argument = Argument(key: "ids", values: [153082687, 153082688])
     
-    XCTAssertEqual(argument.graphQLString, output, "Output doesn't match argument")
+    XCTAssertEqual(argument.asGraphQLString, output, "Output doesn't match argument")
   }
   
   func testArgumentWithEmptyValueString() {
     let output = "ids: "
     let argument = Argument(key: "ids", value: "")
     
-    XCTAssertEqual(argument.graphQLString, output, "Output doesn't match argument")
+    XCTAssertEqual(argument.asGraphQLString, output, "Output doesn't match argument")
   }
   
   func testArgumentWithEmptyValueSequence() {
     let output = ""
     let argument = Argument(key: "ids", values: [])
     
-    XCTAssertEqual(argument.graphQLString, output, "Output doesn't match argument")
+    XCTAssertEqual(argument.asGraphQLString, output, "Output doesn't match argument")
   }
   
   func testArgumentWithEmptyKeyString() {
     let output = ""
     let argument = Argument(key: "", values: [153082687])
     
-    XCTAssertEqual(argument.graphQLString, output, "Output doesn't match argument")
+    XCTAssertEqual(argument.asGraphQLString, output, "Output doesn't match argument")
   }
   
   func testArgumentWithCustomArgumentValue() {
     class CustomArgumentValue: ArgumentValue {
-      var graphQLString: String {
+      var asGraphQLString: String {
         return "test"
       }
     }
@@ -66,6 +66,6 @@ class ArgumentTests: XCTestCase {
     let output = "test: test"
     let argument = Argument(key: "test", value: customArg)
     
-    XCTAssertEqual(argument.graphQLString, output, "Output doesn't match argument")
+    XCTAssertEqual(argument.asGraphQLString, output, "Output doesn't match argument")
   }
 }
