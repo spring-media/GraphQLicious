@@ -21,7 +21,7 @@ class RequestTests: XCTestCase {
     
   func testEmptyRequest() {
     let output = "{}"
-    let request = RequestObject(withRequest: Request(
+    let query = Query(withRequest: Request(
       name: "",
       arguments: [
       ],
@@ -29,12 +29,12 @@ class RequestTests: XCTestCase {
       ]
       )
     )
-    XCTAssertEqual(request.createQuery(), output, "Output doesn't match request")
+    XCTAssertEqual(query.create(), output, "Output doesn't match request")
   }
   
   func testRequestWithEmptyName() {
     let output = "{(ids: 153082687){id,headline}}"
-    let request = RequestObject(withRequest: Request(
+    let query = Query(withRequest: Request(
       name: "",
       arguments: [
         Argument(key: "ids", value: 153082687)
@@ -45,12 +45,12 @@ class RequestTests: XCTestCase {
       ]
       )
     )
-    XCTAssertEqual(request.createQuery(), output, "Output doesn't match request")
+    XCTAssertEqual(query.create(), output, "Output doesn't match request")
   }
   
   func testRequestWithEmptyArguments() {
     let output = "{content{id,headline}}"
-    let request = RequestObject(withRequest: Request(
+    let query = Query(withRequest: Request(
       name: "content",
       arguments: [
       ],
@@ -60,12 +60,12 @@ class RequestTests: XCTestCase {
       ]
       )
     )
-    XCTAssertEqual(request.createQuery(), output, "Output doesn't match request")
+    XCTAssertEqual(query.create(), output, "Output doesn't match request")
   }
   
   func testRequestWithEmptyFields() {
     let output = "{content(ids: 153082687)}"
-    let request = RequestObject(withRequest: Request(
+    let query = Query(withRequest: Request(
       name: "content",
       arguments: [
         Argument(key: "ids", value: 153082687)
@@ -74,12 +74,12 @@ class RequestTests: XCTestCase {
       ]
       )
     )
-    XCTAssertEqual(request.createQuery(), output, "Output doesn't match request")
+    XCTAssertEqual(query.create(), output, "Output doesn't match request")
   }
   
   func testComplexRequest() {
     let output = "{content(ids: 153082687){id,headline,image(role: opener){id,homeSection{displayName},url(ratio: 1.777,size: 200)}}}"
-    let request = RequestObject(withRequest: Request(
+    let query = Query(withRequest: Request(
       name: "content",
       arguments: [
         Argument(key: "ids", value: 153082687)
@@ -113,6 +113,6 @@ class RequestTests: XCTestCase {
       ]
       )
     )
-    XCTAssertEqual(request.createQuery(), output, "Output doesn't match request")
+    XCTAssertEqual(query.create(), output, "Output doesn't match request")
   }
 }

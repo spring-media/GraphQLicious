@@ -14,7 +14,7 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let request = RequestObject(withRequest: Request(
+    let query = Query(withRequest: Request(
       name: "content",
       arguments: [
         Argument(key: "ids", values: [153082687])
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
       ]
       )
     )
-    print(request.createQuery())
+    print(query.create())
   }
   
   override func didReceiveMemoryWarning() {
