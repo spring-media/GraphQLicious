@@ -17,7 +17,7 @@ extension String: Field {
 extension String: ArgumentValue {}
 
 extension String {
-  var withQuotes: String {
+  public var withQuotes: String {
     return "\"\(self)\""
   }
 }
