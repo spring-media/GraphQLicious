@@ -1,4 +1,4 @@
-# GraphiQL-Swift
+# GraphQLicious
 A swift component with a DSL to declare GraphQL queries and to get string representations out of them
 # Contents
 - [Installation] (#installation)
@@ -8,31 +8,31 @@ A swift component with a DSL to declare GraphQL queries and to get string repres
 
 ## Installation
 ### Carthage
-`GraphiQL` supports Carthage. To install it, simply add the following line to your Cartfile
+`GraphQLicious` supports Carthage. To install it, simply add the following line to your Cartfile
 
 ```
-github "WeltN24/GraphiQL-Swift"
+github "WeltN24/GraphQLicious"
 ```
 
 ### CocoaPods
-`GraphiQL` is available through CocoaPods. To install it, simply add the following line to your Podfile
+`GraphQLicious` is available through CocoaPods. To install it, simply add the following line to your Podfile
 
 ```
-pod "GraphiQL-Swift"
+pod "GraphQLicious"
 ```
 ### Swift Package Manager
 
 ### Submodule
-If you don't use CocoaPods, you can still add `GraphiQL` as a submodule, drag and drop `GraphiQL.xcodeproj` into your project, and embed `GraphiQL.framework` in your target.
+If you don't use CocoaPods, you can still add `GraphQLicious` as a submodule, drag and drop `GraphQLicious.xcodeproj` into your project, and embed `GraphQLicious.framework` in your target.
 
-- Drag `GraphiQL.xcodeproj` to your project
+- Drag `GraphQLicious.xcodeproj` to your project
 - Select your app target
 - Click the + button on the Embedded binaries section
-- Add `GraphiQL.framework`
+- Add `GraphQLicious.framework`
 
 ### Manual
 You can directly drag and drop the needed files into your project, but keep in mind that this way you won't be able to automatically get all the latest features.  
-The files are contained in the `GraphiQL` folder and work for the `iOS` frameworks
+The files are contained in the `GraphQLicious` folder and work for the `iOS` framework
 
 ## Usage
 Let's assume, we have the id of an article and we want to have the `headline`, `body` text and `opener image` of that article.
@@ -124,7 +124,7 @@ print(query.create())
 ```
 
 ## Authors
-`GraphiQL-Swift` was made in-house by WeltN24
+`GraphQLicious` was made in-house by WeltN24
 
 ### Contributors
 Felix Dietz, [felix.dietz@weltn24.de](mailto:felix.dietz@weltn24.de), [@joemcbomb](https://github.com/joemcbomb) on Github, [@joemcbomb](https://twitter.com/joemcbomb) on Twitter
@@ -132,4 +132,4 @@ Felix Dietz, [felix.dietz@weltn24.de](mailto:felix.dietz@weltn24.de), [@joemcbom
 Vittorio Monaco, [vittorio.monaco@weltn24.de](mailto:vittorio.monaco@weltn24.de), [@vittoriom](https://github.com/vittoriom) on Github, [@Vittorio_Monaco](https://twitter.com/Vittorio_Monaco) on Twitter
 
 ## License
-`GraphiQL-Swift` is available under the MIT license. See the LICENSE files for more info.
+`GraphQLicious` is available under the MIT license. See the LICENSE files for more info.
