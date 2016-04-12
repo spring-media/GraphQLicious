@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "GraphQLicious"
-  s.version          = "0.4"
+  s.version          = "0.5"
   s.summary          = "A swift component with a DSL to declare GraphQL queries and to get string representations out of them"
 
 # This description is used to generate tags and improve search results.
