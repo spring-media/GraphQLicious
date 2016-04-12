@@ -21,7 +21,7 @@ class QueryTests: XCTestCase {
     
   func testEmptyRequest() {
     let output = "{}"
-    let query = Query(withNode: Request(
+    let query = Query(withRequest: Request(
       name: "",
       arguments: [
       ],
@@ -34,7 +34,7 @@ class QueryTests: XCTestCase {
   
   func testRequestWithEmptyName() {
     let output = "{(ids: 153082687){id,headline}}"
-    let query = Query(withNode: Request(
+    let query = Query(withRequest: Request(
       name: "",
       arguments: [
         Argument(key: "ids", value: 153082687)
@@ -50,7 +50,7 @@ class QueryTests: XCTestCase {
   
   func testRequestWithEmptyArguments() {
     let output = "{content{id,headline}}"
-    let query = Query(withNode: Request(
+    let query = Query(withRequest: Request(
       name: "content",
       arguments: [
       ],
@@ -65,7 +65,7 @@ class QueryTests: XCTestCase {
   
   func testRequestWithEmptyFields() {
     let output = "{content(ids: 153082687)}"
-    let query = Query(withNode: Request(
+    let query = Query(withRequest: Request(
       name: "content",
       arguments: [
         Argument(key: "ids", value: 153082687)
@@ -79,7 +79,7 @@ class QueryTests: XCTestCase {
   
   func testRequestWithAlias() {
     let output = "{test:content(ids: 153082687){id,headline}}"
-    let query = Query(withNode: Request(
+    let query = Query(withRequest: Request(
       withAlias: "test",
       name: "content",
       arguments: [
@@ -95,7 +95,7 @@ class QueryTests: XCTestCase {
   
   func testComplexRequest() {
     let output = "{content(ids: 153082687){id,headline,image(role: opener){id,homeSection{displayName},url(ratio: 1.777,size: 200)}}}"
-    let query = Query(withNode: Request(
+    let query = Query(withRequest: Request(
       name: "content",
       arguments: [
         Argument(key: "ids", value: 153082687)
