@@ -2,10 +2,13 @@
 A swift component with a DSL to declare GraphQL queries and to get string representations out of them.  
 Written for `iOS 8+`, `WatchOS 2`, `tvOS` and `Mac OS X` apps.
 
-[![CI Status](http://img.shields.io/travis/WeltN24/GraphQLicious.svg?style=flat)](https://travis-ci.org/WeltN24/GraphQLicious)
-[![Version](https://img.shields.io/cocoapods/v/GraphQLicious.svg?style=flat)](http://cocoapods.org/pods/GraphQLicious)
-[![License](https://img.shields.io/cocoapods/l/GraphQLicious.svg?style=flat)](http://cocoapods.org/pods/GraphQLicious)
-[![Platform](https://img.shields.io/cocoapods/p/GraphQLicious.svg?style=flat)](http://cocoapods.org/pods/GraphQLicious)
+[![CI Status](http://img.shields.io/travis/WeltN24/GraphQLicious.svg)](https://travis-ci.org/WeltN24/GraphQLicious)
+[![License](https://img.shields.io/cocoapods/l/GraphQLicious.svg)](http://cocoapods.org/pods/GraphQLicious)
+[![Platform](https://img.shields.io/cocoapods/p/GraphQLicious.svg)](http://cocoapods.org/pods/GraphQLicious)
+[![swift2](https://img.shields.io/badge/swift2-compatible-4BC51D.svg)](https://developer.apple.com/swift)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/Carthage/Carthage)
+[![Version](https://img.shields.io/cocoapods/v/GraphQLicious.svg)](http://cocoapods.org/pods/GraphQLicious)
+
 
 # Contents
 - [Installation] (#installation)
