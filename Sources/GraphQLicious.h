@@ -6,7 +6,21 @@
 //  Copyright © 2016 WeltN24. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#ifdef __APPLE__
+  #include "TargetConditionals.h"
+  #if TARGET_OS_IPHONE
+  // iOS
+  #import <UIKit/UIKit.h>
+  #elif TARGET_IPHONE_SIMULATOR
+  // iOS Simulator
+  #import <UIKit/UIKit.h>
+  #elif TARGET_OS_MAC
+  // Other kinds of Mac OS
+  #include <Cocoa/Cocoa.h>
+  #else
+  // Unsupported platform
+  #endif
+#endif
 
 //! Project version number for GraphQLicious.
 FOUNDATION_EXPORT double GraphQLiciousVersionNumber;

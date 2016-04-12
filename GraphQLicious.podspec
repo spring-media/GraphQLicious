@@ -25,7 +25,15 @@ Pod::Spec.new do |s|
   s.author           = { "Felix Dietz" => "felix.dietz@weltn24.de" }
   s.source           = { :git => "https://github.com/WeltN24/GraphQLicious.git", :tag => s.version.to_s }
 
-  s.platform     = :ios, '8.0'
+  s.ios.platform = :ios, "9.0"
+  s.osx.platform = :osx, "10.10"
+  s.watchos.platform = :watchos, "2.0"
+  s.tvos.platform = :tvos, "9.0"
+
+  s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.9'
+  s.watchos.deployment_target = '2.0' 
+  s.tvos.deployment_target = '9.0'
   s.requires_arc = true
 
   s.source_files = 'Sources/**/*.swift', 'Sources/GraphQlicious.h'
