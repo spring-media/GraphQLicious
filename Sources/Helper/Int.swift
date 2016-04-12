@@ -14,4 +14,10 @@ extension Int: Field {
   }
 }
 
+extension Int: CustomDebugStringConvertible {
+  public var debugDescription: String {
+    return self.description
+  }
+}
+
 extension Int: ArgumentValue {}

@@ -39,6 +39,25 @@ extension Fragment: Field {
       return ""
     }
     // TODO: Check for fix in Xcode 7.3
-    return "{\(fields.map{$0.asGraphQLString}.joinWithSeparator(","))}"
+    return "{\(fields.map{$0.asGraphQLField}.joinWithSeparator(","))}"
+  }
+}
+
+extension Fragment: CustomDebugStringConvertible {
+  public var debugDescription: String {
+    return [
+      "fragment",
+      alias,
+      "on",
+      name,
+      getFieldsDebugString()].joinWithSeparator(" ")
+  }
+  
+  private func getFieldsDebugString() -> String {
+    guard fields.count > 0 else {
+      return ""
+    }
+    // TODO: Check for fix in Xcode 7.3
+    return "{\n\t\(fields.map{$0.debugDescription}.joinWithSeparator(",\n\t"))\n}\n"
   }
 }

@@ -61,6 +61,9 @@ class ArgumentTests: XCTestCase {
       var asGraphQLString: String {
         return "test"
       }
+      private var debugDescription: String {
+        return "test"
+      }
     }
     let customArg = CustomArgumentValue()
     let output = "test: test"

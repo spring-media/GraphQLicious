@@ -49,3 +49,9 @@ public struct Query {
     return "{\(request.asGraphQLString)}\(fragments.map {$0.asGraphQLString}.joinWithSeparator(""))"
   }
 }
+
+extension Query: CustomDebugStringConvertible {
+  public var debugDescription: String {
+    return "\n{\n\t\(request.debugDescription)\n}\n\(fragments.map {$0.debugDescription}.joinWithSeparator(""))\n"
+  }
+}

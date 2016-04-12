@@ -97,6 +97,7 @@ class ViewController: UIViewController {
      }
      */
     print(q1.create())
+    print(q1.debugDescription)
   }
   
   override func didReceiveMemoryWarning() {

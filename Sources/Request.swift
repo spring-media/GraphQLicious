@@ -49,3 +49,22 @@ extension Request: Field {
     return "{\(fields.map{$0.asGraphQLField}.joinWithSeparator(","))}"
   }
 }
+
+extension Request: CustomDebugStringConvertible {
+  public var debugDescription: String {
+    return [
+      getAliasString(),
+      name,
+      getArgumentsString(),
+      getFieldsDebugString()
+      ].joinWithSeparator(" ")
+  }
+  
+  private func getFieldsDebugString() -> String {
+    guard fields.count > 0 else {
+      return ""
+    }
+    // TODO: Check for fix in Xcode 7.3
+    return "{\n\t\t\(fields.map{$0.asGraphQLField}.joinWithSeparator(",\n\t\t"))\n\t}"
+  }
+}
