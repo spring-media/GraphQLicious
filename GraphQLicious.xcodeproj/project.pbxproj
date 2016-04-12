@@ -146,9 +146,9 @@
 		D86C603F1CAC20AE002691B9 = {
 			isa = PBXGroup;
 			children = (
-				D86C604B1CAC20AE002691B9 /* GraphQLicious */,
-				D86C60571CAC20AE002691B9 /* GraphQLiciousTests */,
-				D86C60681CAC20DA002691B9 /* GraphQLicious-sample */,
+				D86C604B1CAC20AE002691B9 /* Sources */,
+				D86C60571CAC20AE002691B9 /* Tests */,
+				D86C60681CAC20DA002691B9 /* Sample */,
 				D86C604A1CAC20AE002691B9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -163,7 +163,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D86C604B1CAC20AE002691B9 /* GraphQLicious */ = {
+		D86C604B1CAC20AE002691B9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				D8681D301CB660DC0090627B /* Helper */,
@@ -175,10 +175,10 @@
 				D8B36A3B1CAEA0CF00D4A18B /* Query.swift */,
 				D8713B431CAD4367000AD793 /* Argument.swift */,
 			);
-			path = GraphQLicious;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		D86C60571CAC20AE002691B9 /* GraphQLiciousTests */ = {
+		D86C60571CAC20AE002691B9 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				D86C60581CAC20AE002691B9 /* ArgumentTests.swift */,
@@ -186,10 +186,10 @@
 				D8681D441CB6B02F0090627B /* FragmentTests.swift */,
 				D86C605A1CAC20AE002691B9 /* Info.plist */,
 			);
-			path = GraphQLiciousTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
-		D86C60681CAC20DA002691B9 /* GraphQLicious-sample */ = {
+		D86C60681CAC20DA002691B9 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
 				D86C60691CAC20DA002691B9 /* AppDelegate.swift */,
@@ -199,7 +199,7 @@
 				D86C60721CAC20DA002691B9 /* LaunchScreen.storyboard */,
 				D86C60751CAC20DA002691B9 /* Info.plist */,
 			);
-			path = "GraphQLicious-sample";
+			path = Sample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -510,7 +510,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = GraphQLicious/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.weltN24.GraphQLicious;
@@ -528,7 +528,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = GraphQLicious/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.weltN24.GraphQLicious;
@@ -540,7 +540,7 @@
 		D86C60611CAC20AE002691B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = GraphQLiciousTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.weltN24.GraphQLiciousTests;
 				PRODUCT_NAME = "GraphQLicious Tests";
@@ -550,7 +550,7 @@
 		D86C60621CAC20AE002691B9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = GraphQLiciousTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.weltN24.GraphQLiciousTests;
 				PRODUCT_NAME = "GraphQLicious Tests";
@@ -562,7 +562,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				INFOPLIST_FILE = "GraphQLicious-sample/Info.plist";
+				INFOPLIST_FILE = Sample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.weltN24.GraphQLicious-sample";
 				PRODUCT_NAME = "GraphQLicious-Sample";
@@ -574,7 +574,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				INFOPLIST_FILE = "GraphQLicious-sample/Info.plist";
+				INFOPLIST_FILE = Sample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.weltN24.GraphQLicious-sample";
 				PRODUCT_NAME = "GraphQLicious-Sample";

@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D86C60521CAC20AE002691B9"
-               BuildableName = "GraphQLicious.xctest"
+               BuildableName = "GraphQLicious Tests.xctest"
                BlueprintName = "GraphQLiciousTests"
                ReferencedContainer = "container:GraphQLicious.xcodeproj">
             </BuildableReference>
