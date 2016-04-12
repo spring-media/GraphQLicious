@@ -20,7 +20,6 @@ github "WeltN24/GraphQLicious"
 ```
 pod "GraphQLicious"
 ```
-### Swift Package Manager
 
 ### Submodule
 If you don't use CocoaPods, you can still add `GraphQLicious` as a submodule, drag and drop `GraphQLicious.xcodeproj` into your project, and embed `GraphQLicious.framework` in your target.
@@ -32,7 +31,7 @@ If you don't use CocoaPods, you can still add `GraphQLicious` as a submodule, dr
 
 ### Manual
 You can directly drag and drop the needed files into your project, but keep in mind that this way you won't be able to automatically get all the latest features.  
-The files are contained in the `GraphQLicious` folder and work for the `iOS` framework
+The files are contained in the `Sources` folder and work for the `iOS` framework
 
 ## Usage
 Let's assume, we have the id of an article and we want to have the `headline`, `body` text and `opener image` of that article.
