@@ -1,5 +1,11 @@
 # GraphQLicious
 A swift component with a DSL to declare GraphQL queries and to get string representations out of them
+
+[![CI Status](http://img.shields.io/travis/WeltN24/GraphQLicious.svg?style=flat)](https://travis-ci.org/WeltN24/GraphQLicious)
+[![Version](https://img.shields.io/cocoapods/v/GraphQLicious.svg?style=flat)](http://cocoapods.org/pods/GraphQLicious)
+[![License](https://img.shields.io/cocoapods/l/GraphQLicious.svg?style=flat)](http://cocoapods.org/pods/GraphQLicious)
+[![Platform](https://img.shields.io/cocoapods/p/GraphQLicious.svg?style=flat)](http://cocoapods.org/pods/GraphQLicious)
+
 # Contents
 - [Installation] (#installation)
 - [Usage] (#usage)
