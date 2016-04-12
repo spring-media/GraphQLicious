@@ -7,6 +7,32 @@ A swift component with a DSL to declare GraphQL queries and to get string repres
 - [License] (#license)
 
 ## Installation
+### Carthage
+`GraphiQL` supports Carthage. To install it, simply add the following line to your Cartfile
+
+```
+github "WeltN24/GraphiQL-Swift"
+```
+
+### CocoaPods
+`GraphiQL` is available through CocoaPods. To install it, simply add the following line to your Podfile
+
+```
+pod "GraphiQL-Swift"
+```
+### Swift Package Manager
+
+### Submodule
+If you don't use CocoaPods, you can still add `GraphiQL` as a submodule, drag and drop `GraphiQL.xcodeproj` into your project, and embed `GraphiQL.framework` in your target.
+
+- Drag `GraphiQL.xcodeproj` to your project
+- Select your app target
+- Click the + button on the Embedded binaries section
+- Add `GraphiQL.framework`
+
+### Manual
+You can directly drag and drop the needed files into your project, but keep in mind that this way you won't be able to automatically get all the latest features.  
+The files are contained in the `GraphiQL` folder and work for the `iOS` frameworks
 
 ## Usage
 Let's assume, we have the id of an article and we want to have the `headline`, `body` text and `opener image` of that article.
@@ -15,7 +41,7 @@ Our graphQL query for that will look like this:
 
 ```graphQL
 {
-	test:content(id: 153082687){
+	test: content(id: 153082687){
 		...contentFields
 	}
 }
@@ -90,13 +116,16 @@ let query = Query(withRequest: Request(
 	fragments: [articleContent, imageContent]
 )
 ```  
+
 All we have to do now is to call `create()` on our Query and we're good to go.
 
 ``` 
 print(query.create())
 ```
+
 ## Authors
 `GraphiQL-Swift` was made in-house by WeltN24
+
 ### Contributors
 Felix Dietz, [felix.dietz@weltn24.de](mailto:felix.dietz@weltn24.de), [@joemcbomb](https://github.com/joemcbomb) on Github, [@joemcbomb](https://twitter.com/joemcbomb) on Twitter
 
