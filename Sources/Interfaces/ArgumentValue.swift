@@ -11,4 +11,4 @@ import Foundation
 /**
  Argument value that can be read by GraphQL
  */
-public protocol ArgumentValue: GraphQLConvertible, CustomDebugStringConvertible {}
+public protocol ArgumentValue: GraphQLConvertible {}
