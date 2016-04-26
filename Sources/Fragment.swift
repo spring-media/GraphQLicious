@@ -58,6 +58,12 @@ extension Fragment: CustomDebugStringConvertible {
       return ""
     }
     // TODO: Check for fix in Xcode 7.3
-    return "{\n\t\(fields.map{$0.debugDescription}.joinWithSeparator(",\n\t"))\n}\n"
+    let fieldArray: [String] = fields.map{ field in
+      if field is Fragment {
+        return field.asGraphQLField
+      }
+      return field.debugDescription
+    }
+    return "{\n\t\(fieldArray.joinWithSeparator("\n\t"))\n}\n"
   }
 }

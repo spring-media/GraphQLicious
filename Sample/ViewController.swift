@@ -14,6 +14,8 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    
+    
     /** 
      Let's assume, we have the id of an article and we want to have the 
      headline, body text and opener image of that article.
@@ -21,12 +23,27 @@ class ViewController: UIViewController {
      First, let's create a fragment to fetch the contents
      of an image, namely the image `id` and the image `url`
      */
+    
+    let urlFragment = Fragment(
+      withAlias: "urlFragment",
+      name: "Image",
+      fields: [
+        Request(
+          name: "url",
+          arguments: [
+            Argument(key: "ratio", value: 1),
+            Argument(key: "size", value: 200)
+          ]
+        )
+      ]
+    )
+    
     let imageContent = Fragment(
       withAlias: "imageContent",
       name: "Image",
       fields: [
         "id",
-        "url"
+        urlFragment
       ]
     )
     
@@ -34,7 +51,7 @@ class ViewController: UIViewController {
      Next, let's embed the fragment into a request that gets the opener image
      */
     let imageContentRequest = Request(
-      name: "image",
+      name: "images",
       arguments: [
         Argument(key: "role", value: "opener")
       ],
@@ -70,12 +87,12 @@ class ViewController: UIViewController {
       withAlias: "test",
       name: "content",
       arguments: [
-        Argument(key: "id", values: [153082687])
+        Argument(key: "ids", values: [153082687])
       ],
       fields: [
         articleContent
       ]),
-      fragments: [articleContent, imageContent]
+      fragments: [articleContent, imageContent, urlFragment]
     )
     
     /**
@@ -97,7 +114,7 @@ class ViewController: UIViewController {
      }
      */
     print(q1.create())
-    print(q1.debugDescription)
+    debugPrint(q1)
   }
   
   override func didReceiveMemoryWarning() {
