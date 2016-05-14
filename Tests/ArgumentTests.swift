@@ -36,7 +36,7 @@ class ArgumentTests: XCTestCase {
   }
   
   func testArgumentWithEmptyValueString() {
-    let output = "ids: "
+    let output = "ids: \"\""
     let argument = Argument(key: "ids", value: "")
     
     XCTAssertEqual(argument.asGraphQLString, output, "Output doesn't match argument")
@@ -62,6 +62,10 @@ class ArgumentTests: XCTestCase {
         return "test"
       }
       private var debugDescription: String {
+        return "test"
+      }
+      
+      private var asGraphQLArgument: String {
         return "test"
       }
     }

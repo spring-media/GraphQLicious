@@ -94,7 +94,7 @@ class QueryTests: XCTestCase {
   }
   
   func testComplexRequest() {
-    let output = "{content(ids: 153082687){id,headline,image(role: opener){id,homeSection{displayName},url(ratio: 1.777,size: 200)}}}"
+    let output = "{content(ids: 153082687){id,headline,image(role: \"opener\"){id,homeSection{displayName},url(ratio: 1.777,size: 200)}}}"
     let query = Query(withRequest: Request(
       name: "content",
       arguments: [
