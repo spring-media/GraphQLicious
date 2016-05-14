@@ -94,6 +94,33 @@ let imageContentRequest = Request(
 )
 ```  
 
+GraphQL also gives us the possibility to have custom enums as argument values. All you have to do, is letting your enum implement ArgumentValue and you're good to go.
+
+```swift
+enum customEnum: String, ArgumentValue {
+  case This = "this"
+  case That = "that"
+  
+  private var asGraphQLArgument: String {
+    return rawValue // without quotes
+  }
+}
+    
+let customEnumArgument = Argument(
+  key: "enum",
+  values: [
+    customEnum.This,
+    customEnum.That
+  ]
+)
+```	
+
+So how do we add this argument into our request? Simple, just add it as an argument.
+
+```swift
+imageContentRequest.arguments.append(customEnumArgument)
+```
+
 So now we have a Request with an embedded Fragment. Let's go one step further.  
 If we want to, we can imbed that Request into another Fragment. (We can also embed Fragments into Fragments)  
 Additionally to the opener image with its id and url we also want the `headline` and `body` text of the article.
