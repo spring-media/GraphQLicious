@@ -80,7 +80,8 @@ let imageContent = Fragment(
 )
 ```
 
-Next, let's embed the `Fragment` into a `Request` that gets the opener image
+Next, let's embed the `Fragment` into a `Request` that gets the opener image.	
+**Note:** Argument values that are of type String, are automatically represented with quotes
 
 ```swift
 let imageContentRequest = Request(
