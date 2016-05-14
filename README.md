@@ -57,7 +57,7 @@ Our graphQL query for that will look like this:
 fragment contentFields on Content {
 	headline,
 	body,
-	image(role: opener){
+	image(role: opener, enum: [this, that]){
 		...imageContent
 	}
 }
