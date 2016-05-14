@@ -11,4 +11,12 @@ import Foundation
 /**
  Argument value that can be read by GraphQL
  */
-public protocol ArgumentValue: GraphQLConvertible {}
+public protocol ArgumentValue: GraphQLConvertible {
+  var asGraphQLArgument: String { get }
+}
+
+extension ArgumentValue {
+  public var asGraphQLString: String {
+    return self.asGraphQLArgument
+  }
+}

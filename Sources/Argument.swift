@@ -10,7 +10,7 @@ import Foundation
 
 public struct Argument {
   public let key: String
-  private let values: [ArgumentValue]
+  private var values: [ArgumentValue]
  
   public init(key: String, value: ArgumentValue) {
     self.init(key: key, values: [value])
@@ -31,10 +31,10 @@ extension Argument: GraphQLConvertible {
     case 0:
       return ""
     case 1:
-      return "\(key): \(values[0].asGraphQLString)"
+      return "\(key): \(values[0].asGraphQLArgument)"
     default:
       let valuesString = self.values.map { value in
-        value.asGraphQLString
+        value.asGraphQLArgument
         }.joinWithSeparator(",")
       return "\(key): [\(valuesString)]"
     }

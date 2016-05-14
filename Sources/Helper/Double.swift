@@ -10,8 +10,12 @@ import Foundation
 
 extension Double: Field {
   public var asGraphQLString: String {
-    return self.description
+    return description
   }
 }
 
-extension Double: ArgumentValue {}
+extension Double: ArgumentValue {
+  public var asGraphQLArgument: String {
+    return asGraphQLString
+  }
+}

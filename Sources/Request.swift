@@ -7,10 +7,10 @@
 //
 
 public struct Request {
-  public let alias: String
-  public let name: String
-  public let arguments: [Argument]
-  public let fields: [Field]
+  public var alias: String
+  public var name: String
+  public var arguments: [Argument]
+  public var fields: [Field]
   
   public init(withAlias alias: String = "", name: String, arguments: [Argument] = [], fields: [Field] = []) {
     self.alias = alias.withoutWhiteSpaces

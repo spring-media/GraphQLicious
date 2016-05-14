@@ -48,9 +48,10 @@ class ViewController: UIViewController {
     )
     
     /**
-     Next, let's embed the fragment into a request that gets the opener image
+     Next, let's embed the fragment into a request that gets the opener image.
+     Note: Argument values that are of type String, are automatically represented with quotes
      */
-    let imageContentRequest = Request(
+    var imageContentRequest = Request(
       name: "images",
       arguments: [
         Argument(key: "role", value: "opener")
@@ -59,6 +60,33 @@ class ViewController: UIViewController {
         imageContent
       ]
     )
+    
+    /**
+     GraphQL also gives us the possibility to have custom enums as argument values. All
+     you have to do, is letting your enum implement ArgumentValue and you're good to go.
+     */
+    enum customEnum: String, ArgumentValue {
+      case This = "this"
+      case That = "that"
+      
+      private var asGraphQLArgument: String {
+        return rawValue // without quotes
+      }
+    }
+    
+    let customEnumArgument = Argument(
+      key: "enum",
+      values: [
+        customEnum.This,
+        customEnum.That
+      ]
+    )
+    
+    /**
+     So how do we add this argument into our request? 
+     Simple, just add it as an argument.
+     */
+    imageContentRequest.arguments.append(customEnumArgument)
     
     /**
      So now we have a request with an embedded fragment. Let's go one step further.
@@ -87,7 +115,8 @@ class ViewController: UIViewController {
       withAlias: "test",
       name: "content",
       arguments: [
-        Argument(key: "ids", values: [153082687])
+        Argument(key: "ids", values: [153082687]),
+        customEnumArgument
       ],
       fields: [
         articleContent

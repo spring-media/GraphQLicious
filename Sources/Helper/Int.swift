@@ -10,8 +10,12 @@ import Foundation
 
 extension Int: Field {
   public var asGraphQLString: String {
-    return self.description
+    return description
   }
 }
 
-extension Int: ArgumentValue {}
+extension Int: ArgumentValue {
+  public var asGraphQLArgument: String {
+    return asGraphQLString
+  }
+}

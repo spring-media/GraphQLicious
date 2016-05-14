@@ -8,8 +8,12 @@
 
 extension Float: Field {
   public var asGraphQLString: String {
-    return self.description
+    return description
   }
 }
 
-extension Float: ArgumentValue {}
+extension Float: ArgumentValue {
+  public var asGraphQLArgument: String {
+    return asGraphQLString
+  }
+}
