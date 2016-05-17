@@ -32,8 +32,8 @@
  ```
 */
 public struct Query {
-  public var request: Request
-  public var fragments: [Fragment]
+  public let request: Request
+  public let fragments: [Fragment]
   
   public init(withRequest request: Request, fragments: [Fragment] = []) {
     self.request = request

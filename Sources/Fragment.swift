@@ -9,9 +9,9 @@
 import Foundation
 
 public struct Fragment {
-  public var alias: String
-  public var name: String
-  public var fields: [Field]
+  public let alias: String
+  public let name: String
+  public let fields: [Field]
   
   public init(withAlias alias: String, name: String, fields: [Field]) {
     self.alias = alias.withoutWhiteSpaces

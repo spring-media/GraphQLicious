@@ -62,9 +62,13 @@ fragment contentFields on Content {
 	}
 }
 fragment imageContent on Image {
-	id,
-	url
+	id
+	...urlFragment
 }
+fragment urlFragment on Image {
+	 url (ratio: 1, size: 200) 
+}
+
 ```
 
 First, let's create a `Fragment` to fetch the contents of an image, namely the image `id` and the image `url`
@@ -81,21 +85,8 @@ let imageContent = Fragment(
 ```
 
 Next, let's embed the `Fragment` into a `Request` that gets the opener image.	
-**Note:** Argument values that are of type String, are automatically represented with quotes
-
-```swift
-let imageContentRequest = Request(
-	name: "image",
-	arguments: [
-		Argument(key: "role", value: "opener")
-	],
-	fields: [
-		imageContent
-	]
-)
-```  
-
-GraphQL also gives us the possibility to have custom enums as argument values. All you have to do, is letting your enum implement ArgumentValue and you're good to go.
+**Note:** Argument values that are of type String, are automatically represented with quotes.	
+**GraphQL** also gives us the possibility to have custom enums as argument values. All you have to do, is letting your enum implement ArgumentValue and you're good to go.
 
 ```swift
 enum customEnum: String, ArgumentValue {
@@ -116,11 +107,18 @@ let customEnumArgument = Argument(
 )
 ```	
 
-So how do we add this argument into our request? Simple, just add it as an argument.
-
 ```swift
-imageContentRequest.arguments.append(customEnumArgument)
-```
+let imageContentRequest = Request(
+	name: "image",
+	arguments: [
+		Argument(key: "role", value: "opener"),
+		customEnumArgument
+	],
+	fields: [
+		imageContent
+	]
+)
+```  
 
 So now we have a Request with an embedded Fragment. Let's go one step further.  
 If we want to, we can imbed that Request into another Fragment. (We can also embed Fragments into Fragments)  

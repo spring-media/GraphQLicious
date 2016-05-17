@@ -49,21 +49,10 @@ class ViewController: UIViewController {
     
     /**
      Next, let's embed the fragment into a request that gets the opener image.
-     Note: Argument values that are of type String, are automatically represented with quotes
-     */
-    var imageContentRequest = Request(
-      name: "images",
-      arguments: [
-        Argument(key: "role", value: "opener")
-      ],
-      fields: [
-        imageContent
-      ]
-    )
-    
-    /**
+     Note: Argument values that are of type String, are automatically represented with quotes.
+     
      GraphQL also gives us the possibility to have custom enums as argument values. All
-     you have to do, is letting your enum implement ArgumentValue and you're good to go.
+     we have to do, is letting our enum implement ArgumentValue and we're good to go.
      */
     enum customEnum: String, ArgumentValue {
       case This = "this"
@@ -81,13 +70,18 @@ class ViewController: UIViewController {
         customEnum.That
       ]
     )
-    
-    /**
-     So how do we add this argument into our request? 
-     Simple, just add it as an argument.
-     */
-    imageContentRequest.arguments.append(customEnumArgument)
-    
+
+    let imageContentRequest = Request(
+      name: "images",
+      arguments: [
+        Argument(key: "role", value: "opener"),
+        customEnumArgument
+      ],
+      fields: [
+        imageContent
+      ]
+    )
+
     /**
      So now we have a request with an embedded fragment. Let's go one step further.
      If we want to, we can imbed that request into another fragment.
@@ -115,8 +109,7 @@ class ViewController: UIViewController {
       withAlias: "test",
       name: "content",
       arguments: [
-        Argument(key: "ids", values: [153082687]),
-        customEnumArgument
+        Argument(key: "ids", values: [153082687])
       ],
       fields: [
         articleContent
@@ -126,20 +119,23 @@ class ViewController: UIViewController {
     
     /**
      {
-        test:content(id: 153082687){
-          ...contentFields
-        }
+      test: content(id: 153082687){
+        ...contentFields
+      }
      }
      fragment contentFields on Content {
-        headline,
-        body,
-        image(role: opener){
-          ...imageContent
-        }
+      headline,
+      body,
+      image(role: "opener", enum: [this, that]){
+        ...imageContent
+      }
      }
      fragment imageContent on Image {
-        id,
-        url
+      id
+      ...urlFragment
+     }
+     fragment urlFragment on Image {
+      url (ratio: 1, size: 200) 
      }
      */
     print(q1.create())

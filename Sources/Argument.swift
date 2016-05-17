@@ -10,7 +10,7 @@ import Foundation
 
 public struct Argument {
   public let key: String
-  private var values: [ArgumentValue]
+  public let values: [ArgumentValue]
  
   public init(key: String, value: ArgumentValue) {
     self.init(key: key, values: [value])
