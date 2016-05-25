@@ -10,32 +10,36 @@
  
  ***Example usage:***
  ```swift
-    let request = RequestObject(withRequest: Request(
-      name: "queryName",
-      arguments: [
-        Argument(key: "argument", values: [argumentValue1, argumentValue2])
-      ],
-      fields: [
-        "fieldName",
-        "fieldName",
-        Request(
-          name: "fieldName",
-          arguments: [
-            Argument(key: "argument", value: "argumentValue")
-          ],
-          fields: [
-            "fieldName"
-          ]
-        )
-      ]
-    ))
+ let request = RequestObject(withRequest: Request(
+ name: "queryName",
+ arguments: [
+ Argument(key: "argument", values: [argumentValue1, argumentValue2])
+ ],
+ fields: [
+ "fieldName",
+ "fieldName",
+ Request(
+ name: "fieldName",
+ arguments: [
+ Argument(key: "argument", value: "argumentValue")
+ ],
+ fields: [
+ "fieldName"
+ ]
+ )
+ ]
+ ))
  ```
-*/
+ */
 public struct Query {
+  public var alias: String
   public var request: Request
   public var fragments: [Fragment]
+  private var queryType: QueryType
   
-  public init(withRequest request: Request, fragments: [Fragment] = []) {
+  public init(ofType queryType: QueryType, withAlias alias: String = "", request: Request, fragments: [Fragment] = []) {
+    self.queryType = queryType
+    self.alias = alias
     self.request = request
     self.fragments = fragments
   }
@@ -44,14 +48,14 @@ public struct Query {
    Creates query String that can be interpreted by GraphQL
    
    - returns: A GraphQL readable query String
-  */
+   */
   public func create() -> String {
-    return "{\(request.asGraphQLString)}\(fragments.map {$0.asGraphQLString}.joinWithSeparator(""))"
+    return "\(queryType.rawValue) \(alias) {\(request.asGraphQLString)}\(fragments.map {$0.asGraphQLString}.joinWithSeparator(""))"
   }
 }
 
 extension Query: CustomDebugStringConvertible {
   public var debugDescription: String {
-    return "\n{\n\t\(request.debugDescription)\n}\n\(fragments.map {$0.debugDescription}.joinWithSeparator(""))\n"
+    return "\n\(queryType.rawValue) \(alias) {\n\t\(request.debugDescription)\n}\n\(fragments.map {$0.debugDescription}.joinWithSeparator(""))\n"
   }
 }

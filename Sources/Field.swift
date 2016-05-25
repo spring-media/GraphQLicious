@@ -24,3 +24,31 @@ extension Field {
     return asGraphQLField
   }
 }
+
+extension String: Field {
+  public var asGraphQLString: String {
+    return self
+  }
+  
+  public var asGraphQLField: String {
+    return self.withoutQuotes
+  }
+}
+
+extension Int: Field {
+  public var asGraphQLString: String {
+    return description
+  }
+}
+
+extension Float: Field {
+  public var asGraphQLString: String {
+    return description
+  }
+}
+
+extension Double: Field {
+  public var asGraphQLString: String {
+    return description
+  }
+}

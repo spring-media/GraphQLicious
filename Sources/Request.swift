@@ -46,7 +46,7 @@ extension Request: Field {
       return ""
     }
     // TODO: Check for fix in Xcode 7.3
-    return "{\(fields.map{$0.asGraphQLField}.joinWithSeparator(","))}"
+    return "{\(fields.map {$0.asGraphQLField}.joinWithSeparator(","))}"
   }
 }
 
