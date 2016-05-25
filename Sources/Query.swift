@@ -37,7 +37,7 @@ public struct Query {
   public var fragments: [Fragment]
   private var queryType: QueryType
   
-  public init(ofType queryType: QueryType, withAlias alias: String = "", request: Request, fragments: [Fragment] = []) {
+  public init(ofType queryType: QueryType = .Query, withAlias alias: String = "", request: Request, fragments: [Fragment] = []) {
     self.queryType = queryType
     self.alias = alias
     self.request = request

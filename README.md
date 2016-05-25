@@ -44,6 +44,7 @@ You can directly drag and drop the needed files into your project, but keep in m
 The files are contained in the `Sources` folder and work for the `iOS` framework
 
 ## Usage
+### Query
 Let's assume, we have the id of an article and we want to have the `headline`, `body` text and `opener image` of that article.
 
 Our graphQL query for that will look like this:
@@ -62,9 +63,13 @@ fragment contentFields on Content {
 	}
 }
 fragment imageContent on Image {
-	id,
+	id
 	url
 }
+fragment urlFragment on Image {
+	 url (ratio: 1, size: 200) 
+}
+
 ```
 
 First, let's create a `Fragment` to fetch the contents of an image, namely the image `id` and the image `url`
@@ -81,21 +86,8 @@ let imageContent = Fragment(
 ```
 
 Next, let's embed the `Fragment` into a `Request` that gets the opener image.	
-**Note:** Argument values that are of type String, are automatically represented with quotes
-
-```swift
-let imageContentRequest = Request(
-	name: "image",
-	arguments: [
-		Argument(key: "role", value: "opener")
-	],
-	fields: [
-		imageContent
-	]
-)
-```  
-
-GraphQL also gives us the possibility to have custom enums as argument values. All you have to do, is letting your enum implement ArgumentValue and you're good to go.
+**Note:** Argument values that are of type String, are automatically represented with quotes.	
+**GraphQL** also gives us the possibility to have custom enums as argument values. All you have to do, is letting your enum implement ArgumentValue and you're good to go.
 
 ```swift
 enum customEnum: String, ArgumentValue {
@@ -116,11 +108,18 @@ let customEnumArgument = Argument(
 )
 ```	
 
-So how do we add this argument into our request? Simple, just add it as an argument.
-
 ```swift
-imageContentRequest.arguments.append(customEnumArgument)
-```
+let imageContentRequest = Request(
+	name: "image",
+	arguments: [
+		Argument(key: "role", value: "opener"),
+		customEnumArgument
+	],
+	fields: [
+		imageContent
+	]
+)
+```  
 
 So now we have a Request with an embedded Fragment. Let's go one step further.  
 If we want to, we can imbed that Request into another Fragment. (We can also embed Fragments into Fragments)  
@@ -158,6 +157,63 @@ All we have to do now is to call `create()` on our Query and we're good to go.
 
 ``` 
 print(query.create())
+```
+### Mutation
+Let's assume, we want to change our username and our age in our backend and we want to have the new name and age back to make sure everything went right.
+
+Let's assume further, our server provides a mutating method `editMe` for exactly that purpose.
+
+Our graphQL query for that will look like this:
+
+```graphQL
+mutation myMutation{
+	editMe(input: {
+		name: "joe",
+		age: 99
+	})
+	{
+		name,
+		age
+	}
+}
+```
+Let us first create the actual mutating function. We can use a normal `Request` for that - with a small twist. As `Argument` `values` we give information about which fields should be changed and what's the actual change
+
+```swift
+let mutationRequest = Request(
+	name: "editMe",
+	arguments: [
+		Argument(
+			key: "input",
+			values: [
+				Value(withFields: [
+					MutatingField(key: "name", value: "joe"),
+					MutatingField(key: "age", value: 99)
+				]
+			)]
+		)
+	],
+	fields: [
+		"name",
+		"age"
+	]
+)
+```
+
+We can then use a normal `Query` for that. The only difference is: We have to tell the query, that it will be a `Mutation`
+
+```swift
+let mutation = Query(
+	ofType: .Mutation,
+	withAlias: "myMutation",
+	request: mutationRequest
+	)
+```
+
+After we've done that we can create the request.
+
+```swift
+print(mutation.create())
 ```
 
 ## Authors
