@@ -6,7 +6,7 @@
 //  Copyright © 2016 WeltN24. All rights reserved.
 //
 
-/** Contains the complete GraphQL query and creates a query String that can be read by GraphQL
+/** Contains the complete GraphQL query and creates a String representation that can be read by GraphQL
  
  ***Example usage:***
  ```swift
@@ -31,31 +31,17 @@
  ))
  ```
  */
-public struct Query {
-  public var alias: String
-  public var request: Request
-  public var fragments: [Fragment]
-  private var queryType: QueryType
+public struct Query: Operation {
+  public let alias: String
+  public let request: Request
+  public let fragments: [Fragment]
+  public let queryType: QueryType
   
-  public init(ofType queryType: QueryType = .Query, withAlias alias: String = "", request: Request, fragments: [Fragment] = []) {
-    self.queryType = queryType
+  public init(withAlias alias: String = "", readingRequest request: Request, fragments: [Fragment] = []) {
     self.alias = alias
     self.request = request
     self.fragments = fragments
-  }
-  
-  /**
-   Creates query String that can be interpreted by GraphQL
-   
-   - returns: A GraphQL readable query String
-   */
-  public func create() -> String {
-    return "\(queryType.rawValue) \(alias) {\(request.asGraphQLString)}\(fragments.map {$0.asGraphQLString}.joinWithSeparator(""))"
+    self.queryType = .Query
   }
 }
 
-extension Query: CustomDebugStringConvertible {
-  public var debugDescription: String {
-    return "\n\(queryType.rawValue) \(alias) {\n\t\(request.debugDescription)\n}\n\(fragments.map {$0.debugDescription}.joinWithSeparator(""))\n"
-  }
-}

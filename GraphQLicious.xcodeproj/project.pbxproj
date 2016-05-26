@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		D82417671CF5F404002F7B91 /* QueryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82417661CF5F404002F7B91 /* QueryType.swift */; };
+		D82417691CF6F256002F7B91 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82417681CF6F256002F7B91 /* Request.swift */; };
+		D824176B1CF6F474002F7B91 /* MutatingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D824176A1CF6F474002F7B91 /* MutatingRequest.swift */; };
+		D824176D1CF6F8B6002F7B91 /* Mutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D824176C1CF6F8B6002F7B91 /* Mutation.swift */; };
+		D824176F1CF6F9A0002F7B91 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D824176E1CF6F9A0002F7B91 /* Operation.swift */; };
 		D843F2291CBD1FFC00F73BF2 /* GraphQLicious.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86C60491CAC20AE002691B9 /* GraphQLicious.framework */; };
 		D843F22A1CBD1FFC00F73BF2 /* GraphQLicious.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D86C60491CAC20AE002691B9 /* GraphQLicious.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D843F22E1CBD20A400F73BF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86C606B1CAC20DA002691B9 /* ViewController.swift */; };
@@ -24,7 +28,7 @@
 		D86C606F1CAC20DA002691B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D86C606D1CAC20DA002691B9 /* Main.storyboard */; };
 		D86C60711CAC20DA002691B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86C60701CAC20DA002691B9 /* Assets.xcassets */; };
 		D86C60741CAC20DA002691B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D86C60721CAC20DA002691B9 /* LaunchScreen.storyboard */; };
-		D86C607A1CAC2251002691B9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86C60791CAC2251002691B9 /* Request.swift */; };
+		D86C607A1CAC2251002691B9 /* ReadingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86C60791CAC2251002691B9 /* ReadingRequest.swift */; };
 		D8713B441CAD4367000AD793 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8713B431CAD4367000AD793 /* Argument.swift */; };
 		D8713B461CAE67C3000AD793 /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8713B451CAE67C3000AD793 /* QueryTests.swift */; };
 		D8B36A3C1CAEA0CF00D4A18B /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B36A3B1CAEA0CF00D4A18B /* Query.swift */; };
@@ -64,6 +68,10 @@
 
 /* Begin PBXFileReference section */
 		D82417661CF5F404002F7B91 /* QueryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryType.swift; sourceTree = "<group>"; };
+		D82417681CF6F256002F7B91 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		D824176A1CF6F474002F7B91 /* MutatingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutatingRequest.swift; sourceTree = "<group>"; };
+		D824176C1CF6F8B6002F7B91 /* Mutation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutation.swift; sourceTree = "<group>"; };
+		D824176E1CF6F9A0002F7B91 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		D8681D311CB661240090627B /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		D8681D331CB672F60090627B /* Fragment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fragment.swift; sourceTree = "<group>"; };
 		D8681D3D1CB69E380090627B /* SequenceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceType.swift; sourceTree = "<group>"; };
@@ -83,7 +91,7 @@
 		D86C60701CAC20DA002691B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D86C60731CAC20DA002691B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D86C60751CAC20DA002691B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D86C60791CAC2251002691B9 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		D86C60791CAC2251002691B9 /* ReadingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingRequest.swift; sourceTree = "<group>"; };
 		D8713B431CAD4367000AD793 /* Argument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Argument.swift; sourceTree = "<group>"; };
 		D8713B451CAE67C3000AD793 /* QueryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryTests.swift; sourceTree = "<group>"; };
 		D8B36A3B1CAEA0CF00D4A18B /* Query.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
@@ -133,6 +141,8 @@
 				D8E6F92C1CAD27C000FF7966 /* Field.swift */,
 				D8681D401CB69FFE0090627B /* ArgumentValue.swift */,
 				D8681D421CB6A4F70090627B /* GraphQLConvertible.swift */,
+				D82417681CF6F256002F7B91 /* Request.swift */,
+				D824176E1CF6F9A0002F7B91 /* Operation.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -164,9 +174,11 @@
 				D8681D3F1CB69F070090627B /* Interfaces */,
 				D86C604C1CAC20AE002691B9 /* GraphQLicious.h */,
 				D86C604E1CAC20AE002691B9 /* Info.plist */,
-				D86C60791CAC2251002691B9 /* Request.swift */,
+				D86C60791CAC2251002691B9 /* ReadingRequest.swift */,
+				D824176A1CF6F474002F7B91 /* MutatingRequest.swift */,
 				D8681D331CB672F60090627B /* Fragment.swift */,
 				D8B36A3B1CAEA0CF00D4A18B /* Query.swift */,
+				D824176C1CF6F8B6002F7B91 /* Mutation.swift */,
 				D8713B431CAD4367000AD793 /* Argument.swift */,
 			);
 			path = Sources;
@@ -338,13 +350,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D824176D1CF6F8B6002F7B91 /* Mutation.swift in Sources */,
+				D824176F1CF6F9A0002F7B91 /* Operation.swift in Sources */,
 				D8681D321CB661240090627B /* String.swift in Sources */,
 				D8713B441CAD4367000AD793 /* Argument.swift in Sources */,
 				D82417671CF5F404002F7B91 /* QueryType.swift in Sources */,
 				D8E6F92D1CAD27C000FF7966 /* Field.swift in Sources */,
+				D82417691CF6F256002F7B91 /* Request.swift in Sources */,
 				D8681D341CB672F60090627B /* Fragment.swift in Sources */,
+				D824176B1CF6F474002F7B91 /* MutatingRequest.swift in Sources */,
 				D8681D3E1CB69E380090627B /* SequenceType.swift in Sources */,
-				D86C607A1CAC2251002691B9 /* Request.swift in Sources */,
+				D86C607A1CAC2251002691B9 /* ReadingRequest.swift in Sources */,
 				D8681D411CB69FFE0090627B /* ArgumentValue.swift in Sources */,
 				D8681D431CB6A4F70090627B /* GraphQLConvertible.swift in Sources */,
 				D8B36A3C1CAEA0CF00D4A18B /* Query.swift in Sources */,

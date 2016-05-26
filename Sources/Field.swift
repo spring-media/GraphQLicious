@@ -8,10 +8,10 @@
 
 import Foundation
 
-/**
- Field that can be read by GraphQL
- */
+/// A Field with a customized textual representation suitable for
+/// GraphQL.
 public protocol Field: GraphQLConvertible, CustomDebugStringConvertible {
+  /// A GraphQL Field representation of `self`.
   var asGraphQLField: String { get }
 }
 
