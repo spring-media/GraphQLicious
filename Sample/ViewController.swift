@@ -109,8 +109,7 @@ class ViewController: UIViewController {
      new name and age back to make sure everything went right.
      Let's assume further, our server provides a mutating method `editMe` for exactly that purpose.
      
-     Let us first create the actual mutating request. We can use a normal `Request` for that
-     - with a small twist.
+     Let us first create the actual mutating request. We can use a `MutatingRequest` for that.
      */
     
     let mutatingRequest = MutatingRequest(
@@ -125,8 +124,7 @@ class ViewController: UIViewController {
               ]
             )
           ]
-        )
-      ,
+        ),
       responseFields: [
         "name",
         "age"
