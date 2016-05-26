@@ -8,8 +8,7 @@
 
 import Foundation
 
-/// A Request with a customized textual representation suitable for
-/// GraphQL.
+/// A Request with a customized textual representation suitable for GraphQL.
 public protocol Request: Field, CustomDebugStringConvertible {
   /// The alias of the `Request`.
   var alias: String { get }

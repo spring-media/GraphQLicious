@@ -35,15 +35,25 @@ import Foundation
  ```
  */
 public struct Mutation: Operation {
-  public let alias: String
-  public let request: Request
-  public let fragments: [Fragment]
-  public let queryType: QueryType
+  private let alias: String
+  private let request: Request
+  private let fragments: [Fragment]
+  private let queryType: QueryType
 
   public init(withAlias alias: String, mutatingRequest request: MutatingRequest, fragments: [Fragment] = []) {
     self.alias = alias
     self.request = request
     self.fragments = fragments
     self.queryType = .Mutation
+  }
+  
+  public func create() -> String {
+    return "mutation \(alias) {\(request.asGraphQLString)}\(fragments.map {$0.asGraphQLString}.joinWithSeparator(""))"
+  }
+}
+
+extension Mutation {
+  public var debugDescription: String {
+    return "\nquery \(alias) {\n\t\(request.debugDescription)\n}\n\(fragments.map {$0.debugDescription}.joinWithSeparator(""))\n"
   }
 }

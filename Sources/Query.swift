@@ -32,10 +32,10 @@
  ```
  */
 public struct Query: Operation {
-  public let alias: String
-  public let request: Request
-  public let fragments: [Fragment]
-  public let queryType: QueryType
+  private let alias: String
+  private let request: Request
+  private let fragments: [Fragment]
+  private let queryType: QueryType
   
   public init(withAlias alias: String = "", readingRequest request: Request, fragments: [Fragment] = []) {
     self.alias = alias
@@ -43,5 +43,14 @@ public struct Query: Operation {
     self.fragments = fragments
     self.queryType = .Query
   }
+  
+  public func create() -> String {
+    return "query \(alias) {\(request.asGraphQLString)}\(fragments.map {$0.asGraphQLString}.joinWithSeparator(""))"
+  }
 }
 
+extension Query {
+  public var debugDescription: String {
+    return "\nquery \(alias) {\n\t\(request.debugDescription)\n}\n\(fragments.map {$0.debugDescription}.joinWithSeparator(""))\n"
+  }
+}
