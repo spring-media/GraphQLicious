@@ -6,52 +6,51 @@
 //  Copyright © 2016 WeltN24. All rights reserved.
 //
 
-/** Contains the complete GraphQL query and creates a query String that can be read by GraphQL
+/** Contains the complete GraphQL query and creates a String representation that can be read by GraphQL
  
  ***Example usage:***
  ```swift
-    let request = RequestObject(withRequest: Request(
-      name: "queryName",
-      arguments: [
-        Argument(key: "argument", values: [argumentValue1, argumentValue2])
-      ],
-      fields: [
-        "fieldName",
-        "fieldName",
-        Request(
-          name: "fieldName",
-          arguments: [
-            Argument(key: "argument", value: "argumentValue")
-          ],
-          fields: [
-            "fieldName"
-          ]
-        )
-      ]
-    ))
+ let request = RequestObject(withRequest: Request(
+ name: "queryName",
+ arguments: [
+ Argument(key: "argument", values: [argumentValue1, argumentValue2])
+ ],
+ fields: [
+ "fieldName",
+ "fieldName",
+ Request(
+ name: "fieldName",
+ arguments: [
+ Argument(key: "argument", value: "argumentValue")
+ ],
+ fields: [
+ "fieldName"
+ ]
+ )
+ ]
+ ))
  ```
-*/
-public struct Query {
-  public let request: Request
-  public let fragments: [Fragment]
+ */
+public struct Query: Operation {
+  private let alias: String
+  private let request: Request
+  private let fragments: [Fragment]
+  private let queryType: QueryType
   
-  public init(withRequest request: Request, fragments: [Fragment] = []) {
+  public init(withAlias alias: String = "", readingRequest request: Request, fragments: [Fragment] = []) {
+    self.alias = alias
     self.request = request
     self.fragments = fragments
+    self.queryType = .Query
   }
   
-  /**
-   Creates query String that can be interpreted by GraphQL
-   
-   - returns: A GraphQL readable query String
-  */
   public func create() -> String {
-    return "{\(request.asGraphQLString)}\(fragments.map {$0.asGraphQLString}.joinWithSeparator(""))"
+    return "query \(alias) {\(request.asGraphQLString)}\(fragments.map {$0.asGraphQLString}.joinWithSeparator(""))"
   }
 }
 
-extension Query: CustomDebugStringConvertible {
+extension Query {
   public var debugDescription: String {
-    return "\n{\n\t\(request.debugDescription)\n}\n\(fragments.map {$0.debugDescription}.joinWithSeparator(""))\n"
+    return "\nquery \(alias) {\n\t\(request.debugDescription)\n}\n\(fragments.map {$0.debugDescription}.joinWithSeparator(""))\n"
   }
 }

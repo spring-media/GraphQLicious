@@ -14,51 +14,32 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
-    
-    /** 
-     Let's assume, we have the id of an article and we want to have the 
+    /**
+     Let's assume, we have the id of an article and we want to have the
      headline, body text and opener image of that article.
      
      First, let's create a fragment to fetch the contents
      of an image, namely the image `id` and the image `url`
      */
-    
-    let urlFragment = Fragment(
-      withAlias: "urlFragment",
-      name: "Image",
-      fields: [
-        Request(
-          name: "url",
-          arguments: [
-            Argument(key: "ratio", value: 1),
-            Argument(key: "size", value: 200)
-          ]
-        )
-      ]
-    )
-    
     let imageContent = Fragment(
       withAlias: "imageContent",
       name: "Image",
       fields: [
         "id",
-        urlFragment
+        "url"
       ]
     )
     
-    /**
-     Next, let's embed the fragment into a request that gets the opener image.
+    /**Next, let's embed the `Fragment` into a `Request` that gets the opener image.
      Note: Argument values that are of type String, are automatically represented with quotes.
-     
-     GraphQL also gives us the possibility to have custom enums as argument values. All
-     we have to do, is letting our enum implement ArgumentValue and we're good to go.
+     GraphQL also gives us the possibility to have custom enums as argument values. 
+     All you have to do, is letting your enum implement ArgumentValue and you're good to go.
      */
     enum customEnum: String, ArgumentValue {
       case This = "this"
       case That = "that"
       
-      private var asGraphQLArgument: String {
+      var asGraphQLArgument: String {
         return rawValue // without quotes
       }
     }
@@ -70,12 +51,11 @@ class ViewController: UIViewController {
         customEnum.That
       ]
     )
-
-    let imageContentRequest = Request(
+    
+    let imageContentRequest = ReadingRequest(
       name: "images",
       arguments: [
-        Argument(key: "role", value: "opener"),
-        customEnumArgument
+        Argument(key: "role", value: "opener")
       ],
       fields: [
         imageContent
@@ -87,7 +67,7 @@ class ViewController: UIViewController {
      If we want to, we can imbed that request into another fragment.
      (We can also embed fragments into fragments)
      
-     Additionally to the opener image with its id and url we also want the headline and 
+     Additionally to the opener image with its id and url we also want the headline and
      body text of the article.
      */
     let articleContent = Fragment(
@@ -105,41 +85,63 @@ class ViewController: UIViewController {
      A query always has a top level request to get everything started,
      and requires all the fragments that are used inside.
      */
-    let q1 = Query(withRequest: Request(
+    let q1 = Query(readingRequest: ReadingRequest(
       withAlias: "test",
       name: "content",
       arguments: [
-        Argument(key: "ids", values: [153082687])
+        Argument(key: "ids", values: [153082687]),
+        customEnumArgument
       ],
       fields: [
         articleContent
       ]),
-      fragments: [articleContent, imageContent, urlFragment]
+      fragments: [articleContent, imageContent]
     )
     
     /**
-     {
-      test: content(id: 153082687){
-        ...contentFields
-      }
-     }
-     fragment contentFields on Content {
-      headline,
-      body,
-      image(role: "opener", enum: [this, that]){
-        ...imageContent
-      }
-     }
-     fragment imageContent on Image {
-      id
-      ...urlFragment
-     }
-     fragment urlFragment on Image {
-      url (ratio: 1, size: 200) 
-     }
+     All we have to do now is to call `create()` on our Query and we're good to go.
      */
     print(q1.create())
     debugPrint(q1)
+    
+    /**
+     Let's assume, we want to change our username and our age in our backend and we want to have the 
+     new name and age back to make sure everything went right.
+     Let's assume further, our server provides a mutating method `editMe` for exactly that purpose.
+     
+     Let us first create the actual mutating request. We can use a `MutatingRequest` for that.
+     */
+    
+    let mutatingRequest = MutatingRequest(
+      mutationName: "editMe",
+      mutationArgument:
+        Argument(
+          key: "input",
+          values: [
+            Value(withFields: [
+              MutatingField(key: "name", value: "joe"),
+              MutatingField(key: "age", value: 99)
+              ]
+            )
+          ]
+        ),
+      responseFields: [
+        "name",
+        "age"
+      ]
+    )
+    
+    /**
+     We can then use a normal `Query` for that. The only difference is: We have to tell the query, 
+     that it will be a `Mutation`
+     */
+    let mutation = Mutation(
+      withAlias: "myMutation",
+      mutatingRequest: mutatingRequest
+    )
+    
+    print(mutation.create())
+    debugPrint(mutation)
   }
   
   override func didReceiveMemoryWarning() {

@@ -2,32 +2,36 @@
 //  Request.swift
 //  GraphQLicious
 //
-//  Created by Felix Dietz on 30/03/16.
+//  Created by Felix Dietz on 26/05/16.
 //  Copyright © 2016 WeltN24. All rights reserved.
 //
 
-public struct Request {
-  public let alias: String
-  public let name: String
-  public let arguments: [Argument]
-  public let fields: [Field]
+import Foundation
+
+/// A Request with a customized textual representation suitable for GraphQL.
+public protocol Request: Field, CustomDebugStringConvertible {
+  /// The alias of the `Request`.
+  var alias: String { get }
   
-  public init(withAlias alias: String = "", name: String, arguments: [Argument] = [], fields: [Field] = []) {
-    self.alias = alias.withoutWhiteSpaces
-    self.name = name.withoutWhiteSpaces
-    self.arguments = arguments
-    self.fields = fields
-  }
+  /// The name of the `Request`.
+  var name: String { get }
+  
+  /// The arguments of the `Request`.
+  var arguments: [Argument] { get }
+  
+  /// The fields of the `Request`.
+  var fields: [Field] { get }
 }
 
-extension Request: Field {
+/// Default Field implementation
+extension Request {
   public var asGraphQLString: String {
     return [
-    getAliasString(),
-    name,
-    getArgumentsString(),
-    getFieldsString()
-    ].joinWithSeparator("")
+      getAliasString(),
+      name,
+      getArgumentsString(),
+      getFieldsString()
+      ].joinWithSeparator("")
   }
   
   private func getAliasString() -> String {
@@ -46,11 +50,12 @@ extension Request: Field {
       return ""
     }
     // TODO: Check for fix in Xcode 7.3
-    return "{\(fields.map{$0.asGraphQLField}.joinWithSeparator(","))}"
+    return "{\(fields.map {$0.asGraphQLField}.joinWithSeparator(","))}"
   }
 }
 
-extension Request: CustomDebugStringConvertible {
+/// Default CustomDebugStringConvertible implementation
+extension Request {
   public var debugDescription: String {
     return [
       getAliasString(),

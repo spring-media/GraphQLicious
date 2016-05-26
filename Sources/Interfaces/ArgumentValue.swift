@@ -20,3 +20,41 @@ extension ArgumentValue {
     return self.asGraphQLArgument
   }
 }
+
+public typealias MutatingField = Argument
+
+public struct Value: ArgumentValue {
+  public var fields: [MutatingField]
+  
+  public init(withFields fields: [MutatingField]) {
+    self.fields = fields
+  }
+  
+  public var asGraphQLArgument: String {
+    return "{\(fields.asGraphQLString)}"
+  }
+}
+
+extension String: ArgumentValue {
+  public var asGraphQLArgument: String {
+    return self.withQuotes
+  }
+}
+
+extension Int: ArgumentValue {
+  public var asGraphQLArgument: String {
+    return asGraphQLString
+  }
+}
+
+extension Float: ArgumentValue {
+  public var asGraphQLArgument: String {
+    return asGraphQLString
+  }
+}
+
+extension Double: ArgumentValue {
+  public var asGraphQLArgument: String {
+    return asGraphQLString
+  }
+}

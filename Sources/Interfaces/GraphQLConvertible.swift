@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// A type with a customized textual representation suitable for GraphQL.
 public protocol GraphQLConvertible {
+  /// A GraphQL String representation of `self`.
   var asGraphQLString: String { get }
 }
