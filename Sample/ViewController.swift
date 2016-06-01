@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     
     /**Next, let's embed the `Fragment` into a `Request` that gets the opener image.
      Note: Argument values that are of type String, are automatically represented with quotes.
-     GraphQL also gives us the possibility to have custom enums as argument values. 
+     GraphQL also gives us the possibility to have custom enums as argument values.
      All you have to do, is letting your enum implement ArgumentValue and you're good to go.
      */
     enum customEnum: String, ArgumentValue {
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
         imageContent
       ]
     )
-
+    
     /**
      So now we have a request with an embedded fragment. Let's go one step further.
      If we want to, we can imbed that request into another fragment.
@@ -95,7 +95,7 @@ class ViewController: UIViewController {
       fields: [
         articleContent
       ]),
-      fragments: [articleContent, imageContent]
+                   fragments: [articleContent, imageContent]
     )
     
     /**
@@ -105,7 +105,7 @@ class ViewController: UIViewController {
     debugPrint(q1)
     
     /**
-     Let's assume, we want to change our username and our age in our backend and we want to have the 
+     Let's assume, we want to change our username and our age in our backend and we want to have the
      new name and age back to make sure everything went right.
      Let's assume further, our server provides a mutating method `editMe` for exactly that purpose.
      
@@ -115,16 +115,16 @@ class ViewController: UIViewController {
     let mutatingRequest = MutatingRequest(
       mutationName: "editMe",
       mutationArgument:
-        Argument(
-          key: "input",
-          values: [
-            Value(withFields: [
-              MutatingField(key: "name", value: "joe"),
-              MutatingField(key: "age", value: 99)
-              ]
-            )
-          ]
-        ),
+      Argument(
+        key: "input",
+        values: [
+          Value(withFields: [
+            MutatingField(key: "name", value: "joe"),
+            MutatingField(key: "age", value: 99)
+            ]
+          )
+        ]
+      ),
       responseFields: [
         "name",
         "age"
@@ -132,7 +132,7 @@ class ViewController: UIViewController {
     )
     
     /**
-     We can then use a normal `Query` for that. The only difference is: We have to tell the query, 
+     We can then use a normal `Query` for that. The only difference is: We have to tell the query,
      that it will be a `Mutation`
      */
     let mutation = Mutation(
@@ -142,6 +142,13 @@ class ViewController: UIViewController {
     
     print(mutation.create())
     debugPrint(mutation)
+    
+    debugPrint(Query(withAlias: "", readingRequests: [
+      ReadingRequest(withAlias: "politics", name: "search", arguments: [Argument(key:"section", value: "/politik/"), Argument(key: "limit", value: 10)], fields: ["id"]),
+      ReadingRequest(withAlias: "economics", name: "search", arguments: [Argument(key:"section", value: "/wirtschaft/"), Argument(key: "limit", value: 10)], fields: ["id"])
+      ],
+      fragments: []
+    ))
   }
   
   override func didReceiveMemoryWarning() {
