@@ -12,7 +12,7 @@ public struct ReadingRequest: Request {
   public let arguments: [Argument]
   public let fields: [Field]
   
-  public init(withAlias alias: String = "", name: String = "", arguments: [Argument] = [], fields: [Field] = []) {
+  public init(withAlias alias: String = "", name: String, arguments: [Argument] = [], fields: [Field] = []) {
     self.alias = alias.withoutWhiteSpaces
     self.name = name.withoutWhiteSpaces
     self.arguments = arguments

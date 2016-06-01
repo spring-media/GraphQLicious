@@ -142,13 +142,6 @@ class ViewController: UIViewController {
     
     print(mutation.create())
     debugPrint(mutation)
-    
-    debugPrint(Query(withAlias: "", readingRequests: [
-      ReadingRequest(withAlias: "politics", name: "search", arguments: [Argument(key:"section", value: "/politik/"), Argument(key: "limit", value: 10)], fields: ["id"]),
-      ReadingRequest(withAlias: "economics", name: "search", arguments: [Argument(key:"section", value: "/wirtschaft/"), Argument(key: "limit", value: 10)], fields: ["id"])
-      ],
-      fragments: []
-    ))
   }
   
   override func didReceiveMemoryWarning() {
