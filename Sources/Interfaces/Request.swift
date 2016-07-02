@@ -6,20 +6,18 @@
 //  Copyright © 2016 WeltN24. All rights reserved.
 //
 
-import Foundation
-
 /// A Request with a customized textual representation suitable for GraphQL.
 public protocol Request: Field, CustomDebugStringConvertible {
-  /// The alias of the `Request`.
+  /// The alias of `self`
   var alias: String { get }
   
-  /// The name of the `Request`.
+  /// The name of `self`
   var name: String { get }
   
-  /// The arguments of the `Request`.
-  var arguments: [Argument] { get }
+  /// The arguments of `self`
+  var arguments: [GraphQLConvertible] { get }
   
-  /// The fields of the `Request`.
+  /// The fields of `self`
   var fields: [Field] { get }
 }
 
@@ -42,7 +40,7 @@ extension Request {
     guard arguments.count > 0 else {
       return ""
     }
-    return "(\(arguments.asGraphQLString))"
+    return "(\(arguments.map {$0.asGraphQLString}.joinWithSeparator(",")))"
   }
   
   private func getFieldsString() -> String {

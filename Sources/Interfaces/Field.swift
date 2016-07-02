@@ -6,10 +6,7 @@
 //  Copyright © 2016 WeltN24. All rights reserved.
 //
 
-import Foundation
-
-/// A Field with a customized textual representation suitable for
-/// GraphQL.
+/// A Field with a customized textual representation suitable for GraphQL.
 public protocol Field: GraphQLConvertible, CustomDebugStringConvertible {
   /// A GraphQL Field representation of `self`.
   var asGraphQLField: String { get }

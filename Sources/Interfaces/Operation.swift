@@ -6,8 +6,6 @@
 //  Copyright © 2016 WeltN24. All rights reserved.
 //
 
-import Foundation
-
 /// A GraphQL Operation
 public protocol Operation: CustomDebugStringConvertible {
   /**

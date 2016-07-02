@@ -6,19 +6,17 @@
 //  Copyright © 2016 WeltN24. All rights reserved.
 //
 
-import Foundation
-
 extension String {
+  /// Representation of `self` with surrounding quotes
   public var withQuotes: String {
     return "\"\(self)\""
   }
-  
+  /// Representation of `self` without any quotes
   public var withoutQuotes: String {
-    return self.stringByReplacingOccurrencesOfString("\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+    return self.replace("\"", with: "")
   }
-}
-
-extension String {
+  
+  /// Representation of `self` without any white spaces
   var withoutWhiteSpaces: String {
     return self.replace(" ", with: "")
   }

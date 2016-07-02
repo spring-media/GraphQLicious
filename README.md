@@ -181,26 +181,26 @@ Let us first create the actual mutating function. We can use a `MutatingRequest`
 
 ```swift
 let mutatingRequest = MutatingRequest(
-	mutationName: "editMe",
-	mutationArgument:
-		Argument(
-			key: "input",
-          values: [
-				Value(withFields: [
-					MutatingField(key: "name", value: "joe"),
-					MutatingField(key: "age", value: 99)
-					]
-				)
-			]
-		),
-	responseFields: [
-		"name",
-		"age"
-	]
-)
+      mutationName: "editMe",
+      mutatingArgument:
+      MutatingArgument(
+        key: "input",
+        mutatingValue: MutatingValue(
+          withFields: [
+            MutatingField(name: "name", value: "joe"),
+            MutatingField(name: "age", value: 99)
+          ]
+        )),
+      responseFields: [
+        "name",
+        "age"
+      ]
+    )
 ```
 
-We can then use a normal `Query` for that. The only difference is: We have to tell the query, that it will be a `Mutation`
+Finally, we put everything together as a `Mutation`. 
+
+`Mutations` work just like `Queries`
 
 ```swift
 let mutation = Mutation(

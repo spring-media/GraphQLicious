@@ -70,8 +70,7 @@ class QueryTests: XCTestCase {
       arguments: [
         Argument(key: "ids", value: 153082687)
       ],
-      fields: [
-      ]
+      fields: []
       )
     )
     XCTAssertEqual(query.create(), output, "Output doesn't match request")

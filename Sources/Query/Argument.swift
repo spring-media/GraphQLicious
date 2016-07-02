@@ -6,10 +6,11 @@
 //  Copyright © 2016 WeltN24. All rights reserved.
 //
 
-import Foundation
-
 public struct Argument {
+  /// The key of `self`.
   public let key: String
+  
+  /// The values of `self`.
   public let values: [ArgumentValue]
  
   public init(key: String, value: ArgumentValue) {

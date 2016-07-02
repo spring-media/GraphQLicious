@@ -105,26 +105,25 @@ class ViewController: UIViewController {
     debugPrint(q1)
     
     /**
-     Let's assume, we want to change our username and our age in our backend and we want to have the
-     new name and age back to make sure everything went right.
+     Let's assume, we want to change our username and our age in our backend and we want to have the new name and age back to make sure everything went right.
+     
      Let's assume further, our server provides a mutating method `editMe` for exactly that purpose.
      
      Let us first create the actual mutating request. We can use a `MutatingRequest` for that.
+     As Argument values we give information about which fields should be changed and what's the actual change
      */
     
     let mutatingRequest = MutatingRequest(
       mutationName: "editMe",
-      mutationArgument:
-      Argument(
+      mutatingArgument:
+      MutatingArgument(
         key: "input",
-        values: [
-          Value(withFields: [
-            MutatingField(key: "name", value: "joe"),
-            MutatingField(key: "age", value: 99)
-            ]
-          )
-        ]
-      ),
+        mutatingValue: MutatingValue(
+          withFields: [
+            MutatingField(name: "name", value: "joe"),
+            MutatingField(name: "age", value: 99)
+          ]
+        )),
       responseFields: [
         "name",
         "age"
@@ -134,6 +133,11 @@ class ViewController: UIViewController {
     /**
      We can then use a normal `Query` for that. The only difference is: We have to tell the query,
      that it will be a `Mutation`
+     */
+    
+    /**
+     Finally, we put everything together as a `Mutation`.
+     A `Mutation` works just like a `Query`
      */
     let mutation = Mutation(
       withAlias: "myMutation",

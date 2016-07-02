@@ -6,9 +6,8 @@
 //  Copyright © 2016 WeltN24. All rights reserved.
 //
 
-import Foundation
 extension SequenceType where Generator.Element: GraphQLConvertible {
-  public var asGraphQLString: String {
+  var asGraphQLString: String {
     return map { element in
       element.asGraphQLString
       }.joinWithSeparator(",")

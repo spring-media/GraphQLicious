@@ -6,32 +6,15 @@
 //  Copyright © 2016 WeltN24. All rights reserved.
 //
 
-import Foundation
-
-/**
- Argument value that can be read by GraphQL
- */
+///Argument value that can be read by GraphQL
 public protocol ArgumentValue: GraphQLConvertible {
+  /// A GraphQL Argument representation of `self`.
   var asGraphQLArgument: String { get }
 }
 
 extension ArgumentValue {
   public var asGraphQLString: String {
     return self.asGraphQLArgument
-  }
-}
-
-public typealias MutatingField = Argument
-
-public struct Value: ArgumentValue {
-  public var fields: [MutatingField]
-  
-  public init(withFields fields: [MutatingField]) {
-    self.fields = fields
-  }
-  
-  public var asGraphQLArgument: String {
-    return "{\(fields.asGraphQLString)}"
   }
 }
 

@@ -9,13 +9,13 @@
 public struct ReadingRequest: Request {
   public let alias: String
   public let name: String
-  public let arguments: [Argument]
+  public let arguments: [GraphQLConvertible]
   public let fields: [Field]
   
   public init(withAlias alias: String = "", name: String, arguments: [Argument] = [], fields: [Field] = []) {
     self.alias = alias.withoutWhiteSpaces
     self.name = name.withoutWhiteSpaces
-    self.arguments = arguments
+    self.arguments = arguments.map{$0}
     self.fields = fields
   }
 }

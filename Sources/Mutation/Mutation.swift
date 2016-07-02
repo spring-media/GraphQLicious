@@ -6,8 +6,6 @@
 //  Copyright © 2016 WeltN24. All rights reserved.
 //
 
-import Foundation
-
 /** Contains the complete GraphQL mutation and creates a String representation that can be read by GraphQL
  
  ***Example usage:***
@@ -40,7 +38,7 @@ public struct Mutation: Operation {
   private let fragments: [Fragment]
   private let queryType: QueryType
 
-  public init(withAlias alias: String, mutatingRequest request: MutatingRequest, fragments: [Fragment] = []) {
+  public init(withAlias alias: String = "", mutatingRequest request: MutatingRequest, fragments: [Fragment] = []) {
     self.alias = alias
     self.request = request
     self.fragments = fragments
@@ -52,6 +50,7 @@ public struct Mutation: Operation {
   }
 }
 
+/// Default CustomDebugStringConvertible implementation
 extension Mutation {
   public var debugDescription: String {
     return "\nquery \(alias) {\n\t\(request.debugDescription)\n}\n\(fragments.map {$0.debugDescription}.joinWithSeparator(""))\n"

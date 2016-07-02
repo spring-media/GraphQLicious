@@ -6,8 +6,6 @@
 //  Copyright © 2016 WeltN24. All rights reserved.
 //
 
-import Foundation
-
 public struct Fragment {
   public let alias: String
   public let name: String

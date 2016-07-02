@@ -53,6 +53,7 @@ public struct Query: Operation {
   }
 }
 
+/// Default CustomDebugStringConvertible implementation
 extension Query {
   public var debugDescription: String {
     return "\nquery \(alias) {\n\t\(requests.map{$0.debugDescription}.joinWithSeparator("\n"))\n}\n\(fragments.map {$0.debugDescription}.joinWithSeparator(""))\n"

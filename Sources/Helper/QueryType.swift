@@ -6,8 +6,7 @@
 //  Copyright © 2016 WeltN24. All rights reserved.
 //
 
-import Foundation
-
+/// The type of a GraphQL query
 public enum QueryType: String {
   case Query = "query"
   case Mutation = "mutation"
