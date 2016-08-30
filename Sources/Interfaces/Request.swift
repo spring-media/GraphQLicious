@@ -7,22 +7,26 @@
 //
 
 /// A Request with a customized textual representation suitable for GraphQL.
-public protocol Request: Field, CustomDebugStringConvertible {
+public struct Request: Field, CustomDebugStringConvertible {
   /// The alias of `self`
-  var alias: String { get }
+  public let alias: String
   
   /// The name of `self`
-  var name: String { get }
+  public let name: String
   
   /// The arguments of `self`
-  var arguments: [GraphQLConvertible] { get }
+  public let arguments: [GraphQLConvertible]
   
   /// The fields of `self`
-  var fields: [Field] { get }
-}
-
-/// Default Field implementation
-extension Request {
+  public let fields: [Field]
+  
+  public init(withAlias alias: String = "", name: String, arguments: [Argument] = [], fields: [Field] = []) {
+    self.alias = alias.withoutWhiteSpaces
+    self.name = name.withoutWhiteSpaces
+    self.arguments = arguments.map{$0}
+    self.fields = fields
+  }
+  
   public var asGraphQLString: String {
     return [
       getAliasString(),
@@ -47,13 +51,10 @@ extension Request {
     guard fields.count > 0 else {
       return ""
     }
-    // TODO: Check for fix in Xcode 7.3
+    
     return "{\(fields.map {$0.asGraphQLField}.joinWithSeparator(","))}"
   }
-}
 
-/// Default CustomDebugStringConvertible implementation
-extension Request {
   public var debugDescription: String {
     return [
       getAliasString(),
@@ -67,7 +68,7 @@ extension Request {
     guard fields.count > 0 else {
       return ""
     }
-    // TODO: Check for fix in Xcode 7.3
+    
     return "{\n\t\t\(fields.map{$0.asGraphQLField}.joinWithSeparator(",\n\t\t"))\n\t}"
   }
 }

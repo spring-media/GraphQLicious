@@ -10,24 +10,24 @@
  
  ***Example usage:***
  ```swift
- let request = RequestObject(withRequest: Request(
- name: "queryName",
- arguments: [
- Argument(key: "argument", values: [argumentValue1, argumentValue2])
- ],
- fields: [
- "fieldName",
- "fieldName",
- Request(
- name: "fieldName",
- arguments: [
- Argument(key: "argument", value: "argumentValue")
- ],
- fields: [
- "fieldName"
- ]
- )
- ]
+ let query = Query(request: Request(
+    name: "queryName",
+    arguments: [
+      Argument(key: "argument", values: [argumentValue1, argumentValue2])
+    ],
+    fields: [
+      "fieldName",
+      "fieldName",
+      Request(
+        name: "fieldName",
+        arguments: [
+          Argument(key: "argument", value: "argumentValue")
+        ],
+        fields: [
+          "fieldName"
+        ]
+      )
+    ]
  ))
  ```
  */
@@ -37,11 +37,11 @@ public struct Query: Operation {
   private let fragments: [Fragment]
   private let queryType: QueryType
   
-  public init(withAlias alias: String = "", readingRequest request: ReadingRequest, fragments: [Fragment] = []) {
-    self.init(withAlias: alias, readingRequests: [request], fragments: fragments)
+  public init(withAlias alias: String = "", request: Request, fragments: [Fragment] = []) {
+    self.init(withAlias: alias, requests: [request], fragments: fragments)
   }
   
-  public init(withAlias alias: String = "", readingRequests requests: [ReadingRequest], fragments: [Fragment]) {
+  public init(withAlias alias: String = "", requests: [Request], fragments: [Fragment]) {
     self.alias = alias
     self.requests = requests.map {$0}
     self.fragments = fragments

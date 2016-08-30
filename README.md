@@ -86,8 +86,8 @@ let imageContent = Fragment(
 ```
 
 Next, let's embed the `Fragment` into a `Request` that gets the opener image.	
-**Note:** Argument values that are of type String, are automatically represented with quotes.	
-**GraphQL** also gives us the possibility to have custom enums as argument values. All you have to do, is letting your enum implement ArgumentValue and you're good to go.
+**Note:** `Argument` values that are of type `String` are automatically represented with quotes.	
+**GraphQL** also gives us the possibility to have custom enums as argument values. All you have to do is letting your enum implement `ArgumentValue` and you're good to go.
 
 ```swift
 enum customEnum: String, ArgumentValue {
@@ -95,7 +95,7 @@ enum customEnum: String, ArgumentValue {
   case That = "that"
   
   private var asGraphQLArgument: String {
-    return rawValue // without quotes
+	return rawValue // without quotes
   }
 }
     
@@ -109,7 +109,7 @@ let customEnumArgument = Argument(
 ```	
 
 ```swift
-let imageContentRequest = ReadingRequest(
+let imageContentRequest = Request(
 	name: "image",
 	arguments: [
 		Argument(key: "role", value: "opener"),
@@ -140,7 +140,7 @@ let articleContent = Fragment(
 Finally, we put everything together as a `Query`. A Query always has a top level Request to get everything started, and requires all the Fragments that are used inside.
 
 ```swift
-let query = Query(readingRequest: ReadingRequest(
+let query = Query(request: Request(
 	withAlias: "test",
 	name: "content",
 	arguments: [
@@ -167,31 +167,26 @@ Our graphQL query for that will look like this:
 
 ```graphQL
 mutation myMutation {
-	editMe(input: {
+	editMe(
 		name: "joe",
 		age: 99
-	})
+	)
 	{
 		name,
 		age
 	}
 }
 ```
-Let us first create the actual mutating function. We can use a `MutatingRequest` for that. As `Argument` `values` we give information about which fields should be changed and what's the actual change
+Let us first create the actual mutating function. We can use a `Request` for that. As `Argument` `values` we give information about which fields should be changed and what's the actual change
 
 ```swift
-let mutatingRequest = MutatingRequest(
-      mutationName: "editMe",
-      mutatingArgument:
-      MutatingArgument(
-        key: "input",
-        mutatingValue: MutatingValue(
-          withFields: [
-            MutatingField(name: "name", value: "joe"),
-            MutatingField(name: "age", value: 99)
-          ]
-        )),
-      responseFields: [
+let mutatingRequest = Request(
+      name: "editMe",
+      arguments: [
+      	Argument(name: "name", value: "joe"),
+        Argument(name: "age", value: 99)
+      ],
+      fields: [
         "name",
         "age"
       ]
@@ -200,7 +195,7 @@ let mutatingRequest = MutatingRequest(
 
 Finally, we put everything together as a `Mutation`. 
 
-`Mutations` work just like `Queries`
+`Mutation`s work just like `Queries`
 
 ```swift
 let mutation = Mutation(

@@ -21,7 +21,7 @@ class QueryTests: XCTestCase {
     
   func testEmptyRequest() {
     let output = "query  {}"
-    let query = Query(readingRequest: ReadingRequest(
+    let query = Query(request: Request(
       name: "",
       arguments: [
       ],
@@ -34,7 +34,7 @@ class QueryTests: XCTestCase {
   
   func testRequestWithEmptyName() {
     let output = "query  {(ids: 153082687){id,headline}}"
-    let query = Query(readingRequest: ReadingRequest(
+    let query = Query(request: Request(
       name: "",
       arguments: [
         Argument(key: "ids", value: 153082687)
@@ -50,7 +50,7 @@ class QueryTests: XCTestCase {
   
   func testRequestWithEmptyArguments() {
     let output = "query  {content{id,headline}}"
-    let query = Query(readingRequest: ReadingRequest(
+    let query = Query(request: Request(
       name: "content",
       arguments: [
       ],
@@ -65,7 +65,7 @@ class QueryTests: XCTestCase {
   
   func testRequestWithEmptyFields() {
     let output = "query  {content(ids: 153082687)}"
-    let query = Query(readingRequest: ReadingRequest(
+    let query = Query(request: Request(
       name: "content",
       arguments: [
         Argument(key: "ids", value: 153082687)
@@ -78,7 +78,7 @@ class QueryTests: XCTestCase {
   
   func testRequestWithAlias() {
     let output = "query  {test:content(ids: 153082687){id,headline}}"
-    let query = Query(readingRequest: ReadingRequest(
+    let query = Query(request: Request(
       withAlias: "test",
       name: "content",
       arguments: [
@@ -94,7 +94,7 @@ class QueryTests: XCTestCase {
   
   func testComplexRequest() {
     let output = "query  {content(ids: 153082687){id,headline,image(role: \"opener\"){id,homeSection{displayName},url(ratio: 1.777,size: 200)}}}"
-    let query = Query(readingRequest: ReadingRequest(
+    let query = Query(request: Request(
       name: "content",
       arguments: [
         Argument(key: "ids", value: 153082687)
@@ -102,21 +102,21 @@ class QueryTests: XCTestCase {
       fields: [
         "id",
         "headline",
-        ReadingRequest(
+        Request(
           name: "image",
           arguments: [
             Argument(key: "role", value: "opener")
           ],
           fields: [
             "id",
-            ReadingRequest(
+            Request(
               name: "homeSection",
               arguments: [],
               fields: [
                 "displayName"
               ]
             ),
-            ReadingRequest(
+            Request(
               name: "url",
               arguments: [
                 Argument(key: "ratio", value: 1.777),
