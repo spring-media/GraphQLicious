@@ -13,6 +13,7 @@ Written for `iOS 8+`, `WatchOS 2`, `tvOS` and `Mac OS X` apps.
 # Contents
 - [Installation] (#installation)
 - [Usage] (#usage)
+- [Breaking changes] (#breaking-changes)
 - [Authors] (#authors)
 - [License] (#license)
 
@@ -95,7 +96,7 @@ enum customEnum: String, ArgumentValue {
   case That = "that"
   
   private var asGraphQLArgument: String {
-	return rawValue // without quotes
+    return rawValue // without quotes
   }
 }
     
@@ -209,6 +210,16 @@ After we've done that we can create the request.
 ```swift
 print(mutation.create())
 ```
+
+## Breaking changes
+
+### From `0.8` to `0.9` 
+
+- `ReadingRequest` is now simply `Request`
+- `MutatingRequest` has been removed, you can use `Request` instead
+- `MutatingArgument` has been removed, you can use `Argument` instead
+- `MutatingValue` and `MutatingField` have been removed, you can use `Argument`, or `ObjectValue` and `ObjectKeyValuePair` instead
+
 
 ## Authors
 `GraphQLicious` was made in-house by WeltN24

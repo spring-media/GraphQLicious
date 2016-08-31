@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// A value that can be used as a mutation input (e.g. https://facebook.github.io/relay/graphql/mutations.htm), consisting of a complex object with key value pairs
 public struct ObjectValue: ArgumentValue {
   private let keyValuePairs: [Argument]
   
@@ -21,4 +22,5 @@ public struct ObjectValue: ArgumentValue {
   }
 }
 
+/// A key-value pair that can be used with an `ObjectValue`
 public typealias ObjectKeyValuePair = Argument
