@@ -54,6 +54,6 @@ public struct Mutation: Operation {
 /// Default CustomDebugStringConvertible implementation
 extension Mutation {
   public var debugDescription: String {
-    return "\nquery \(alias) {\n\t\(request.debugDescription)\n}\n\(fragments.map {$0.debugDescription}.joinWithSeparator(""))\n"
+    return "\nmutation \(alias) {\n\t\(request.debugDescription)\n}\n\(fragments.map {$0.debugDescription}.joinWithSeparator(""))\n"
   }
 }
