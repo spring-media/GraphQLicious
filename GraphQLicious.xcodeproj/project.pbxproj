@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD9359FC1D756BD800F9271C /* ObjectValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9359FB1D756BD800F9271C /* ObjectValue.swift */; };
 		D821004B1CF88D6B00EDE6DC /* MutationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82100491CF88CC700EDE6DC /* MutationTests.swift */; };
-		D82100531CF89D2B00EDE6DC /* MutatingValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82100521CF89D2B00EDE6DC /* MutatingValue.swift */; };
 		D82417671CF5F404002F7B91 /* QueryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82417661CF5F404002F7B91 /* QueryType.swift */; };
 		D82417691CF6F256002F7B91 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82417681CF6F256002F7B91 /* Request.swift */; };
 		D824176F1CF6F9A0002F7B91 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D824176E1CF6F9A0002F7B91 /* Operation.swift */; };
@@ -17,7 +17,6 @@
 		D843F22E1CBD20A400F73BF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86C606B1CAC20DA002691B9 /* ViewController.swift */; };
 		D843F22F1CBD20AB00F73BF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86C60691CAC20DA002691B9 /* AppDelegate.swift */; };
 		D8681D321CB661240090627B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8681D311CB661240090627B /* String.swift */; };
-		D8681D3E1CB69E380090627B /* SequenceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8681D3D1CB69E380090627B /* SequenceType.swift */; };
 		D8681D411CB69FFE0090627B /* ArgumentValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8681D401CB69FFE0090627B /* ArgumentValue.swift */; };
 		D8681D431CB6A4F70090627B /* GraphQLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8681D421CB6A4F70090627B /* GraphQLConvertible.swift */; };
 		D8681D451CB6B02F0090627B /* FragmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8681D441CB6B02F0090627B /* FragmentTests.swift */; };
@@ -30,11 +29,7 @@
 		D8713B461CAE67C3000AD793 /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8713B451CAE67C3000AD793 /* QueryTests.swift */; };
 		D8E18A721D279D3000AC29DF /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E18A711D279D3000AC29DF /* Field.swift */; };
 		D8E18A741D279D8C00AC29DF /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E18A731D279D8C00AC29DF /* Query.swift */; };
-		D8E18A761D279DA700AC29DF /* ReadingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E18A751D279DA700AC29DF /* ReadingRequest.swift */; };
 		D8E18A781D279DB900AC29DF /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E18A771D279DB900AC29DF /* Argument.swift */; };
-		D8E18A7A1D279DD700AC29DF /* MutatingArgument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E18A791D279DD700AC29DF /* MutatingArgument.swift */; };
-		D8E18A7C1D279DE800AC29DF /* MutatingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E18A7B1D279DE800AC29DF /* MutatingRequest.swift */; };
-		D8E18A7E1D279DF500AC29DF /* MutatingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E18A7D1D279DF500AC29DF /* MutatingField.swift */; };
 		D8E18A801D279E0300AC29DF /* Mutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E18A7F1D279E0300AC29DF /* Mutation.swift */; };
 		D8E18A841D279F0F00AC29DF /* Fragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E18A831D279F0F00AC29DF /* Fragment.swift */; };
 /* End PBXBuildFile section */
@@ -71,13 +66,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AD9359FB1D756BD800F9271C /* ObjectValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectValue.swift; sourceTree = "<group>"; };
 		D82100491CF88CC700EDE6DC /* MutationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutationTests.swift; sourceTree = "<group>"; };
-		D82100521CF89D2B00EDE6DC /* MutatingValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutatingValue.swift; sourceTree = "<group>"; };
 		D82417661CF5F404002F7B91 /* QueryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryType.swift; sourceTree = "<group>"; };
 		D82417681CF6F256002F7B91 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		D824176E1CF6F9A0002F7B91 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		D8681D311CB661240090627B /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		D8681D3D1CB69E380090627B /* SequenceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceType.swift; sourceTree = "<group>"; };
 		D8681D401CB69FFE0090627B /* ArgumentValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArgumentValue.swift; sourceTree = "<group>"; };
 		D8681D421CB6A4F70090627B /* GraphQLConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLConvertible.swift; sourceTree = "<group>"; };
 		D8681D441CB6B02F0090627B /* FragmentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FragmentTests.swift; sourceTree = "<group>"; };
@@ -97,11 +91,7 @@
 		D8713B451CAE67C3000AD793 /* QueryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryTests.swift; sourceTree = "<group>"; };
 		D8E18A711D279D3000AC29DF /* Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		D8E18A731D279D8C00AC29DF /* Query.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
-		D8E18A751D279DA700AC29DF /* ReadingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingRequest.swift; sourceTree = "<group>"; };
 		D8E18A771D279DB900AC29DF /* Argument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Argument.swift; sourceTree = "<group>"; };
-		D8E18A791D279DD700AC29DF /* MutatingArgument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutatingArgument.swift; sourceTree = "<group>"; };
-		D8E18A7B1D279DE800AC29DF /* MutatingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutatingRequest.swift; sourceTree = "<group>"; };
-		D8E18A7D1D279DF500AC29DF /* MutatingField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutatingField.swift; sourceTree = "<group>"; };
 		D8E18A7F1D279E0300AC29DF /* Mutation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutation.swift; sourceTree = "<group>"; };
 		D8E18A831D279F0F00AC29DF /* Fragment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fragment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,7 +128,6 @@
 			children = (
 				D8E18A731D279D8C00AC29DF /* Query.swift */,
 				D8E18A771D279DB900AC29DF /* Argument.swift */,
-				D8E18A751D279DA700AC29DF /* ReadingRequest.swift */,
 			);
 			path = Query;
 			sourceTree = "<group>";
@@ -147,10 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				D8E18A7F1D279E0300AC29DF /* Mutation.swift */,
-				D8E18A7D1D279DF500AC29DF /* MutatingField.swift */,
-				D8E18A7B1D279DE800AC29DF /* MutatingRequest.swift */,
-				D8E18A791D279DD700AC29DF /* MutatingArgument.swift */,
-				D82100521CF89D2B00EDE6DC /* MutatingValue.swift */,
+				AD9359FB1D756BD800F9271C /* ObjectValue.swift */,
 			);
 			path = Mutation;
 			sourceTree = "<group>";
@@ -161,7 +147,6 @@
 				D82417661CF5F404002F7B91 /* QueryType.swift */,
 				D8E18A831D279F0F00AC29DF /* Fragment.swift */,
 				D8681D311CB661240090627B /* String.swift */,
-				D8681D3D1CB69E380090627B /* SequenceType.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -378,18 +363,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8E18A7C1D279DE800AC29DF /* MutatingRequest.swift in Sources */,
 				D824176F1CF6F9A0002F7B91 /* Operation.swift in Sources */,
 				D8681D321CB661240090627B /* String.swift in Sources */,
-				D8E18A7A1D279DD700AC29DF /* MutatingArgument.swift in Sources */,
-				D82100531CF89D2B00EDE6DC /* MutatingValue.swift in Sources */,
 				D82417671CF5F404002F7B91 /* QueryType.swift in Sources */,
-				D8E18A7E1D279DF500AC29DF /* MutatingField.swift in Sources */,
 				D82417691CF6F256002F7B91 /* Request.swift in Sources */,
+				AD9359FC1D756BD800F9271C /* ObjectValue.swift in Sources */,
 				D8E18A841D279F0F00AC29DF /* Fragment.swift in Sources */,
 				D8E18A741D279D8C00AC29DF /* Query.swift in Sources */,
-				D8681D3E1CB69E380090627B /* SequenceType.swift in Sources */,
-				D8E18A761D279DA700AC29DF /* ReadingRequest.swift in Sources */,
 				D8E18A721D279D3000AC29DF /* Field.swift in Sources */,
 				D8681D411CB69FFE0090627B /* ArgumentValue.swift in Sources */,
 				D8E18A781D279DB900AC29DF /* Argument.swift in Sources */,

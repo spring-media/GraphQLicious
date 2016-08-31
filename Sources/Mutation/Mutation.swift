@@ -15,10 +15,10 @@
     arguments: [
       Argument(
         key: "input",
-        values: [
-          Value(withFields: [
-            MutatingField(key: "name", value: "joe"),
-            MutatingField(key: "age", value: 99)
+        value: [
+          ObjectValue(keyValuePairs: [
+              ObjectKeyValuePair(key: "name", value: "joe"),
+              ObjectKeyValuePair(key: "age", value: 99)
             ]
           )
         ]
@@ -38,7 +38,7 @@ public struct Mutation: Operation {
   private let fragments: [Fragment]
   private let queryType: QueryType
 
-  public init(withAlias alias: String = "", mutatingRequest request: MutatingRequest, fragments: [Fragment] = []) {
+  public init(withAlias alias: String = "", mutatingRequest request: Request, fragments: [Fragment] = []) {
     self.alias = alias
     self.request = request
     self.fragments = fragments
@@ -46,7 +46,8 @@ public struct Mutation: Operation {
   }
   
   public func create() -> String {
-    return "mutation \(alias) {\(request.asGraphQLString)}\(fragments.map {$0.asGraphQLString}.joinWithSeparator(""))"
+    let completeAlias = alias.isEmpty ? "" : "\(alias) "
+    return "mutation \(completeAlias){\(request.asGraphQLString)}\(fragments.map {$0.asGraphQLString}.joinWithSeparator(""))"
   }
 }
 

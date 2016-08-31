@@ -18,22 +18,22 @@ class MutationTests: XCTestCase {
   }
   
   func testEmptyMutation() {
-    let output = "mutation  {()}"
-    let mutation = Mutation(mutatingRequest: MutatingRequest(
-      mutationName: "",
-      mutatingArgument: MutatingArgument(key: "", mutatingValue: ""),
-      responseFields: []
-      )
+    let output = "mutation {()}"
+    let mutation = Mutation(mutatingRequest: Request(
+      name: "",
+      arguments: [Argument(key: "", value: "")],
+      fields: []
+    )
     )
     XCTAssertEqual(mutation.create(), output, "Output doesn't match request")
   }
   
   func testMutationWithEmptyName() {
-    let output = "mutation  {(name: \"joe\"){name}}"
-    let mutation = Mutation(mutatingRequest: MutatingRequest(
-      mutationName: "",
-      mutatingArgument: MutatingArgument(key: "name", mutatingValue: "joe"),
-      responseFields: [
+    let output = "mutation {(name: \"joe\"){name}}"
+    let mutation = Mutation(mutatingRequest: Request(
+      name: "",
+      arguments: [Argument(key: "name", value: "joe")],
+      fields: [
         "name"
       ]
       )
@@ -42,11 +42,11 @@ class MutationTests: XCTestCase {
   }
   
   func testMutationWithEmptyArgument() {
-    let output = "mutation  {mutate(){name}}"
-    let mutation = Mutation(mutatingRequest: MutatingRequest(
-      mutationName: "mutate",
-      mutatingArgument: MutatingArgument(key: "", mutatingValue: ""),
-      responseFields: [
+    let output = "mutation {mutate(){name}}"
+    let mutation = Mutation(mutatingRequest: Request(
+      name: "mutate",
+      arguments: [ Argument(key: "", value: "") ],
+      fields: [
         "name"
       ]
       )
@@ -55,23 +55,23 @@ class MutationTests: XCTestCase {
   }
   
   func testMutationWithEmptyField() {
-    let output = "mutation  {mutate(name: \"joe\")}"
-    let mutation = Mutation(mutatingRequest: MutatingRequest(
-      mutationName: "mutate",
-      mutatingArgument: MutatingArgument(key: "name", mutatingValue: "joe"),
-      responseFields: []
+    let output = "mutation {mutate(name: \"joe\")}"
+    let mutation = Mutation(mutatingRequest: Request(
+      name: "mutate",
+      arguments: [ Argument(key: "name", value: "joe") ],
+      fields: []
       )
     )
     XCTAssertEqual(mutation.create(), output, "Output doesn't match request")
   }
   
   func testMutationWithAlias() {
-    let output = "mutation  {test:mutate(name: \"joe\"){name}}"
-    let mutation = Mutation(mutatingRequest: MutatingRequest(
+    let output = "mutation {test:mutate(name: \"joe\"){name}}"
+    let mutation = Mutation(mutatingRequest: Request(
       withAlias: "test",
-      mutationName: "mutate",
-      mutatingArgument: MutatingArgument(key: "name", mutatingValue: "joe"),
-      responseFields: [
+      name: "mutate",
+      arguments: [ Argument(key: "name", value: "joe") ],
+      fields: [
         "name"
       ]
       )
@@ -80,36 +80,36 @@ class MutationTests: XCTestCase {
   }
   
   func testComplexMutation() {
-    let output = "mutation  {alias:test(input: {name: \"joe\",age: 99}){name,image(role: \"opener\"){id,homeSection{displayName},url(ratio: 1.777,size: 200)}}}"
-    let mutation = Mutation(mutatingRequest: MutatingRequest(
+    let output = "mutation {alias:test(input: {\n\t\tname: \"joe\",age: 99\n}){name,image(role: \"opener\"){id,homeSection{displayName},url(ratio: 1.777,size: 200)}}}"
+    let mutation = Mutation(mutatingRequest: Request(
       withAlias: "alias",
-      mutationName: "test",
-      mutatingArgument: MutatingArgument(
+      name: "test",
+      arguments: [ Argument(
         key: "input",
-        mutatingValue: MutatingValue(
-          withFields: [
-            MutatingField(name: "name", value: "joe"),
-            MutatingField(name: "age", value: 99)
+        value: ObjectValue(
+          keyValuePairs: [
+            ObjectKeyValuePair(key: "name", value: "joe"),
+            ObjectKeyValuePair(key: "age", value: 99)
           ]
         )
-      ),
-      responseFields: [
+      )],
+      fields: [
         "name",
-        ReadingRequest(
+        Request(
           name: "image",
           arguments: [
             Argument(key: "role", value: "opener")
           ],
           fields: [
             "id",
-            ReadingRequest(
+            Request(
               name: "homeSection",
               arguments: [],
               fields: [
                 "displayName"
               ]
             ),
-            ReadingRequest(
+            Request(
               name: "url",
               arguments: [
                 Argument(key: "ratio", value: 1.777),

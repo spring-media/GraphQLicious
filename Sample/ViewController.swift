@@ -52,7 +52,7 @@ class ViewController: UIViewController {
       ]
     )
     
-    let imageContentRequest = ReadingRequest(
+    let imageContentRequest = Request(
       name: "images",
       arguments: [
         Argument(key: "role", value: "opener")
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
      A query always has a top level request to get everything started,
      and requires all the fragments that are used inside.
      */
-    let q1 = Query(readingRequest: ReadingRequest(
+    let q1 = Query(request: Request(
       withAlias: "test",
       name: "content",
       arguments: [
@@ -112,28 +112,16 @@ class ViewController: UIViewController {
      Let us first create the actual mutating request. We can use a `MutatingRequest` for that.
      As Argument values we give information about which fields should be changed and what's the actual change
      */
-    
-    let mutatingRequest = MutatingRequest(
-      mutationName: "editMe",
-      mutatingArgument:
-      MutatingArgument(
-        key: "input",
-        mutatingValue: MutatingValue(
-          withFields: [
-            MutatingField(name: "name", value: "joe"),
-            MutatingField(name: "age", value: 99)
-          ]
-        )),
-      responseFields: [
-        "name",
-        "age"
+    let mutatingRequest = Request(name: "editMe", arguments: [
+      Argument(key: "title", value: "hello"),
+      Argument(key: "groupIds", values: [1, 2, 3]),
+    ], fields: [
+        "title",
+        Request(name: "group", fields: [
+          "id"
+        ])
       ]
     )
-    
-    /**
-     We can then use a normal `Query` for that. The only difference is: We have to tell the query,
-     that it will be a `Mutation`
-     */
     
     /**
      Finally, we put everything together as a `Mutation`.
