@@ -302,12 +302,14 @@
 				TargetAttributes = {
 					D86C60481CAC20AE002691B9 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 					};
 					D86C60521CAC20AE002691B9 = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
 					D86C60661CAC20DA002691B9 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -539,6 +541,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos watchsimulator watchos macosx appletvsimulator appletvos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -560,6 +563,7 @@
 				PRODUCT_NAME = GraphQLicious;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos watchsimulator watchos macosx appletvsimulator appletvos";
+				SWIFT_VERSION = 2.3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -595,6 +599,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "de.weltN24.GraphQLicious-sample";
 				PRODUCT_NAME = "GraphQLicious-Sample";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -608,6 +613,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "de.weltN24.GraphQLicious-sample";
 				PRODUCT_NAME = "GraphQLicious-Sample";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
