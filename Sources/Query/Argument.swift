@@ -36,7 +36,7 @@ extension Argument: GraphQLConvertible {
     default:
       let valuesString = self.values.map { value in
         value.asGraphQLArgument
-        }.joinWithSeparator(",")
+        }.joined(separator: ",")
       return "\(key): [\(valuesString)]"
     }
   }

@@ -21,7 +21,7 @@ extension String {
     return self.replace(" ", with: "")
   }
   
-  private func replace(string: String, with replacement: String) -> String {
-    return self.stringByReplacingOccurrencesOfString(string, withString: replacement, options: NSStringCompareOptions.LiteralSearch, range: nil)
+  private func replace(_ string: String, with replacement: String) -> String {
+    return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literalSearch, range: nil)
   }
 }

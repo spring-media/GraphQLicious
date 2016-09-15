@@ -49,13 +49,13 @@ public struct Query: Operation {
   }
   
   public func create() -> String {
-    return "query \(alias) {\(requests.map{$0.asGraphQLString}.joinWithSeparator(""))}\(fragments.map {$0.asGraphQLString}.joinWithSeparator(""))"
+    return "query \(alias) {\(requests.map{$0.asGraphQLString}.joined(separator: ""))}\(fragments.map {$0.asGraphQLString}.joined(separator: ""))"
   }
 }
 
 /// Default CustomDebugStringConvertible implementation
 extension Query {
   public var debugDescription: String {
-    return "\nquery \(alias) {\n\t\(requests.map{$0.debugDescription}.joinWithSeparator("\n"))\n}\n\(fragments.map {$0.debugDescription}.joinWithSeparator(""))\n"
+    return "\nquery \(alias) {\n\t\(requests.map{$0.debugDescription}.joined(separator: "\n"))\n}\n\(fragments.map {$0.debugDescription}.joined(separator: ""))\n"
   }
 }

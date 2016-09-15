@@ -17,7 +17,7 @@ public struct ObjectValue: ArgumentValue {
   }
   
   public var asGraphQLArgument: String {
-    let arguments = keyValuePairs.isEmpty ? "" : "\(keyValuePairs.map {$0.asGraphQLString}.joinWithSeparator(","))"
+    let arguments = keyValuePairs.isEmpty ? "" : "\(keyValuePairs.map {$0.asGraphQLString}.joined(separator: ","))"
     return "{\n\t\t\(arguments)\n}"
   }
 }

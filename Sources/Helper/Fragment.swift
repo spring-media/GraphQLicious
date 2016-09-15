@@ -29,7 +29,7 @@ extension Fragment: Field {
       alias,
       "on",
       name,
-      getFieldsString()].joinWithSeparator(" ")
+      getFieldsString()].joined(separator: " ")
   }
   
   private func getFieldsString() -> String {
@@ -37,7 +37,7 @@ extension Fragment: Field {
       return ""
     }
     // TODO: Check for fix in Xcode 7.3
-    return "{\(fields.map{$0.asGraphQLField}.joinWithSeparator(","))}"
+    return "{\(fields.map{$0.asGraphQLField}.joined(separator: ","))}"
   }
 }
 
@@ -48,7 +48,7 @@ extension Fragment: CustomDebugStringConvertible {
       alias,
       "on",
       name,
-      getFieldsDebugString()].joinWithSeparator(" ")
+      getFieldsDebugString()].joined(separator: " ")
   }
   
   private func getFieldsDebugString() -> String {
@@ -62,6 +62,6 @@ extension Fragment: CustomDebugStringConvertible {
       }
       return field.debugDescription
     }
-    return "{\n\t\(fieldArray.joinWithSeparator("\n\t"))\n}\n"
+    return "{\n\t\(fieldArray.joined(separator: "\n\t"))\n}\n"
   }
 }

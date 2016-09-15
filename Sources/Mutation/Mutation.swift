@@ -47,13 +47,13 @@ public struct Mutation: Operation {
   
   public func create() -> String {
     let completeAlias = alias.isEmpty ? "" : "\(alias) "
-    return "mutation \(completeAlias){\(request.asGraphQLString)}\(fragments.map {$0.asGraphQLString}.joinWithSeparator(""))"
+    return "mutation \(completeAlias){\(request.asGraphQLString)}\(fragments.map {$0.asGraphQLString}.joined(separator: ""))"
   }
 }
 
 /// Default CustomDebugStringConvertible implementation
 extension Mutation {
   public var debugDescription: String {
-    return "\nmutation \(alias) {\n\t\(request.debugDescription)\n}\n\(fragments.map {$0.debugDescription}.joinWithSeparator(""))\n"
+    return "\nmutation \(alias) {\n\t\(request.debugDescription)\n}\n\(fragments.map {$0.debugDescription}.joined(separator: ""))\n"
   }
 }

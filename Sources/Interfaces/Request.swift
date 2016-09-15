@@ -33,7 +33,7 @@ public struct Request: Field, CustomDebugStringConvertible {
       name,
       getArgumentsString(),
       getFieldsString()
-      ].joinWithSeparator("")
+      ].joined(separator: "")
   }
   
   private func getAliasString() -> String {
@@ -44,7 +44,7 @@ public struct Request: Field, CustomDebugStringConvertible {
     guard arguments.count > 0 else {
       return ""
     }
-    return "(\(arguments.map {$0.asGraphQLString}.joinWithSeparator(",")))"
+    return "(\(arguments.map {$0.asGraphQLString}.joined(separator: ",")))"
   }
   
   private func getFieldsString() -> String {
@@ -52,7 +52,7 @@ public struct Request: Field, CustomDebugStringConvertible {
       return ""
     }
     
-    return "{\(fields.map {$0.asGraphQLField}.joinWithSeparator(","))}"
+    return "{\(fields.map {$0.asGraphQLField}.joined(separator: ","))}"
   }
 
   public var debugDescription: String {
@@ -61,7 +61,7 @@ public struct Request: Field, CustomDebugStringConvertible {
       name,
       getArgumentsString(),
       getFieldsDebugString()
-      ].joinWithSeparator(" ")
+      ].joined(separator: " ")
   }
   
   private func getFieldsDebugString() -> String {
@@ -69,6 +69,6 @@ public struct Request: Field, CustomDebugStringConvertible {
       return ""
     }
     
-    return "{\n\t\t\(fields.map{$0.asGraphQLField}.joinWithSeparator(",\n\t\t"))\n\t}"
+    return "{\n\t\t\(fields.map{$0.asGraphQLField}.joined(separator: ",\n\t\t"))\n\t}"
   }
 }
