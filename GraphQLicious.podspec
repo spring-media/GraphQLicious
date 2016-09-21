@@ -25,11 +25,6 @@ Pod::Spec.new do |s|
   s.author           = { "Felix Dietz" => "felix.dietz@weltn24.de" }
   s.source           = { :git => "https://github.com/WeltN24/GraphQLicious.git", :tag => s.version.to_s }
 
-  s.ios.platform = "9.0"
-  s.osx.platform = "10.10"
-  s.watchos.platform = "2.0"
-  s.tvos.platform = "9.0"
-
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.9'
   s.watchos.deployment_target = '2.0' 
