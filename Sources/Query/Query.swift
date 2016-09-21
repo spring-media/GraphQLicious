@@ -32,10 +32,10 @@
  ```
  */
 public struct Query: Operation {
-  private let alias: String
-  private let requests: [Request]
-  private let fragments: [Fragment]
-  private let queryType: QueryType
+  fileprivate let alias: String
+  fileprivate let requests: [Request]
+  fileprivate let fragments: [Fragment]
+  fileprivate let queryType: QueryType
   
   public init(withAlias alias: String = "", request: Request, fragments: [Fragment] = []) {
     self.init(withAlias: alias, requests: [request], fragments: fragments)

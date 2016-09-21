@@ -307,6 +307,7 @@
 					};
 					D86C60521CAC20AE002691B9 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Manual;
 					};
 					D86C60661CAC20DA002691B9 = {
@@ -579,6 +580,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.weltN24.GraphQLiciousTests;
 				PRODUCT_NAME = "GraphQLicious Tests";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -589,6 +591,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.weltN24.GraphQLiciousTests;
 				PRODUCT_NAME = "GraphQLicious Tests";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
