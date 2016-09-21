@@ -22,6 +22,6 @@ extension String {
   }
   
   private func replace(_ string: String, with replacement: String) -> String {
-    return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literalSearch, range: nil)
+    return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literal, range: nil)
   }
 }

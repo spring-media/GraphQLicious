@@ -33,10 +33,10 @@
  ```
  */
 public struct Mutation: Operation {
-  private let alias: String
-  private let request: Request
-  private let fragments: [Fragment]
-  private let queryType: QueryType
+  fileprivate let alias: String
+  fileprivate let request: Request
+  fileprivate let fragments: [Fragment]
+  fileprivate let queryType: QueryType
 
   public init(withAlias alias: String = "", mutatingRequest request: Request, fragments: [Fragment] = []) {
     self.alias = alias
