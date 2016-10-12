@@ -65,10 +65,11 @@ class ArgumentTests: XCTestCase {
         return "test"
       }
       
-      private var asGraphQLArgument: String {
+      var asGraphQLArgument: String {
         return "test"
       }
     }
+    
     let customArg = CustomArgumentValue()
     let output = "test: test"
     let argument = Argument(key: "test", value: customArg)
