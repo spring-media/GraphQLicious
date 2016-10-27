@@ -49,3 +49,9 @@ extension Double: Field {
     return description
   }
 }
+
+extension Bool: Field {
+  public var asGraphQLString: String {
+    return description
+  }
+}

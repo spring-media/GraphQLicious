@@ -41,3 +41,9 @@ extension Double: ArgumentValue {
     return asGraphQLString
   }
 }
+
+extension Bool: ArgumentValue {
+  public var asGraphQLArgument: String {
+    return asGraphQLString
+  }
+}
