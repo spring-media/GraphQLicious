@@ -1,0 +1,14 @@
+# references:
+# * http://www.objc.io/issue-6/travis-ci.html
+# * https://github.com/supermarin/xcpretty#usage
+
+language: objective-c
+os: osx
+osx_image: xcode8
+
+# before_install:
+install:
+- gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+script:
+- set -o pipefail && xcodebuild test -project GraphQLicious.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.0' -scheme GraphQLicious -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
+- pod lib lint --quick
