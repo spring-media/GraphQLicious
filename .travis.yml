@@ -12,3 +12,5 @@ install:
 script:
 - set -o pipefail && xcodebuild test -project GraphQLicious.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.0' -scheme GraphQLicious -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
 - pod lib lint --quick
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
