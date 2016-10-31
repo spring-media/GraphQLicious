@@ -9,6 +9,7 @@ A swift component with a DSL to declare GraphQL queries and to get string repres
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/GraphQLicious.svg)](http://cocoapods.org/pods/GraphQLicious)
 [![codebeat badge](https://codebeat.co/badges/44501d73-aea0-42ad-8206-0466c4bb26b3)](https://codebeat.co/projects/github-com-weltn24-graphqlicious)
+[![codecov](https://codecov.io/gh/WeltN24/GraphQLicious/branch/master/graph/badge.svg)](https://codecov.io/gh/WeltN24/GraphQLicious)
 
 
 # Contents
