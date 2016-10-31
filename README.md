@@ -2,12 +2,14 @@
 A swift component with a DSL to declare GraphQL queries and to get string representations out of them.
 
 [![iOS 8] (https://img.shields.io/badge/iOS%208%2B%20%7C%20MacOS%20X%2B%20%7C%20TV%20OS%20%7C%20Watch%20OS%202%2B-Compatible-brightgreen.svg)] ()
-[![CI Status](http://img.shields.io/travis/WeltN24/GraphQLicious.svg)](https://travis-ci.org/WeltN24/GraphQLicious)
-[![License](https://img.shields.io/cocoapods/l/GraphQLicious.svg)](http://cocoapods.org/pods/GraphQLicious)
-[![Platform](https://img.shields.io/cocoapods/p/GraphQLicious.svg)](http://cocoapods.org/pods/GraphQLicious)
-[![swift3](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)](https://developer.apple.com/swift)
+
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/GraphQLicious.svg)](http://cocoapods.org/pods/GraphQLicious)
+
+[![swift3](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)](https://developer.apple.com/swift)
+[![License](https://img.shields.io/cocoapods/l/GraphQLicious.svg)](http://cocoapods.org/pods/GraphQLicious)
+
+[![CI Status](http://img.shields.io/travis/WeltN24/GraphQLicious.svg)](https://travis-ci.org/WeltN24/GraphQLicious)
 [![codebeat badge](https://codebeat.co/badges/44501d73-aea0-42ad-8206-0466c4bb26b3)](https://codebeat.co/projects/github-com-weltn24-graphqlicious)
 [![codecov](https://codecov.io/gh/WeltN24/GraphQLicious/branch/master/graph/badge.svg)](https://codecov.io/gh/WeltN24/GraphQLicious)
 
