@@ -217,7 +217,7 @@ print(mutation.create())
 
 ## Breaking changes
 
-### From `0.8` to `0.9` 
+### From `0.7` to `0.8` 
 
 - `ReadingRequest` is now simply `Request`
 - `MutatingRequest` has been removed, you can use `Request` instead
