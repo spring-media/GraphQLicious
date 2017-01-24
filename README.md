@@ -229,7 +229,7 @@ print(mutation.create())
 `GraphQLicious` was made in-house by WeltN24
 
 ### Contributors
-Felix Dietz, [felix.dietz@weltn24.de](mailto:felix.dietz@weltn24.de), [@wlkntlknstvnhwkn](https://github.com/wlkntlknstvnhwkn) (<del>[@joemcbomb](https://github.com/joemcbomb)</del>) on Github, [@joemcbomb](https://twitter.com/joemcbomb) on Twitter
+Felix Dietz, [fedietz@gmail.com](mailto:fedietz@gmail.com), [@wlkntlknstvnhwkn](https://github.com/wlkntlknstvnhwkn) (<del>[@joemcbomb](https://github.com/joemcbomb)</del>) on Github, [@joemcbomb](https://twitter.com/joemcbomb) on Twitter
 
 Vittorio Monaco, [vittorio.monaco@weltn24.de](mailto:vittorio.monaco@weltn24.de), [@vittoriom](https://github.com/vittoriom) on Github, [@Vittorio_Monaco](https://twitter.com/Vittorio_Monaco) on Twitter
 
