@@ -1,7 +1,7 @@
 # GraphQLicious
 GraphQLicious is a swift component that provides an intuitive and convenient way to build GraphQL queries and convert them easily to String representations.
 
-[![iOS 8] (https://img.shields.io/badge/iOS%208%2B%20%7C%20MacOS%20X%2B%20%7C%20TV%20OS%20%7C%20Watch%20OS%202%2B-Compatible-brightgreen.svg)] ()
+[![iOS 8](https://img.shields.io/badge/iOS%208%2B%20%7C%20MacOS%20X%2B%20%7C%20TV%20OS%20%7C%20Watch%20OS%202%2B-Compatible-brightgreen.svg)]()
 
 [![carthage](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/Carthage/Carthage)
 [![cocoapods](https://img.shields.io/cocoapods/v/GraphQLicious.svg)](http://cocoapods.org/pods/GraphQLicious)
@@ -15,11 +15,11 @@ GraphQLicious is a swift component that provides an intuitive and convenient way
 
 
 # Contents
-- [Installation] (#installation)
-- [Usage] (#usage)
-- [Breaking changes] (#breaking-changes)
-- [Authors] (#authors)
-- [License] (#license)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Breaking changes](#breaking-changes)
+- [Authors](#authors)
+- [License](#license)
 
 ## Installation
 ### Carthage
