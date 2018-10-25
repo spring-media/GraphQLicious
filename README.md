@@ -15,11 +15,11 @@ GraphQLicious is a swift component that provides an intuitive and convenient way
 
 
 # Contents
-- [Installation] (#installation)
-- [Usage] (#usage)
-- [Breaking changes] (#breaking-changes)
-- [Authors] (#authors)
-- [License] (#license)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Breaking changes](#breaking-changes)
+- [Authors](#authors)
+- [License](#license)
 
 ## Installation
 ### Carthage
